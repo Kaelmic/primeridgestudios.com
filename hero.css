@@ -241,7 +241,7 @@
 .scroll-down {
   position: absolute;
   left: 50%;
-  bottom: 68px;
+  bottom: 34px;
   transform: translateX(-50%);
   width: 42px;
   height: 66px;
