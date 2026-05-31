@@ -1,0 +1,226 @@
+@media (max-width: 1180px) {
+  .hero-feature {
+    right: 5%;
+    width: 330px;
+  }
+
+  .feature-box {
+    height: 260px;
+  }
+
+  .hero-content {
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    min-height: auto;
+    padding: 145px 7% 90px;
+    align-items: flex-start;
+  }
+
+  .hero::before {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(8, 18, 38, 0.88),
+        rgba(8, 18, 38, 0.62),
+        rgba(8, 18, 38, 0.9)
+      ),
+      url("images/hero-bg1.png") center/cover no-repeat;
+  }
+
+  .hero-feature,
+  .slider-count {
+    display: none;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero h1 {
+    font-size: clamp(48px, 14vw, 78px);
+    letter-spacing: -0.055em;
+  }
+
+  .hero p {
+    max-width: 100%;
+  }
+
+  .hero-buttons {
+    margin-top: 34px;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero {
+    padding: 130px 6% 82px;
+  }
+
+  .hero-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-size: clamp(43px, 15vw, 64px);
+  }
+
+  .hero p {
+    margin-top: 24px;
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .scroll-down {
+    display: none;
+  }
+}
+
+@media (max-width: 1100px) {
+  .nav-links {
+    gap: 30px;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .included-grid,
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info {
+    width: 100%;
+  }
+}
+
+@media (max-width: 850px) {
+  .navbar {
+    width: min(92%, 1500px);
+    min-height: 72px;
+    margin-top: 16px;
+    padding: 0 18px;
+  }
+
+  .brand-main {
+    font-size: 16px;
+  }
+
+  .brand-sub {
+    margin-left: 34px;
+    font-size: 8px;
+    letter-spacing: 0.45em;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-cta {
+    padding: 13px 18px;
+    font-size: 12px;
+  }
+
+  .section,
+  .intro,
+  .cta-section {
+    padding: 90px 7%;
+  }
+
+  .intro h2,
+  .section-heading h2,
+  .cta-section h2 {
+    font-size: clamp(34px, 11vw, 52px);
+  }
+
+  .intro p,
+  .section-heading p,
+  .cta-section p {
+    font-size: 16px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contact-info,
+  .contact-form {
+    padding: 30px;
+  }
+
+  .contact-info .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  :root {
+    --page-width: min(92%, 1500px);
+  }
+
+  .navbar {
+    border-radius: 22px;
+  }
+
+  .brand-main {
+    font-size: 14px;
+    letter-spacing: 0.12em;
+  }
+
+  .brand-sub {
+    margin-left: 25px;
+    letter-spacing: 0.35em;
+  }
+
+  .nav-cta {
+    padding: 12px 14px;
+  }
+
+  .section,
+  .intro,
+  .cta-section {
+    padding: 78px 6%;
+  }
+
+  .project-card,
+  .included-card,
+  .price-card,
+  .contact-info,
+  .contact-form {
+    border-radius: 26px;
+    padding: 26px;
+  }
+
+  .price {
+    font-size: 36px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
