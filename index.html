@@ -4,22 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>PrimeRidge Studios | Premium Websites for Modern Brands</title>
-  <meta name="description" content="PrimeRidge Studios creates premium websites, booking pages, and digital systems for modern local businesses." />
+  <title>PrimeRidge Studios | Websites for Local Brands in Malta</title>
+  <meta name="description" content="PrimeRidge Studios designs clean, fast, booking-focused websites for any businesses in Malta." />
 
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="loading.css" />
-  <link rel="stylesheet" href="hero.css" />
   <link rel="stylesheet" href="responsive.css" />
 
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.png" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  
 </head>
 
 <body>
@@ -27,263 +27,384 @@
 <header class="site-header">
   <nav class="navbar" aria-label="Main navigation">
     <a href="#home" class="brand" aria-label="PrimeRidge Studios home">
-      <span class="brand-main">PRIMERIDGE</span>
-      <span class="brand-sub">STUDIOS</span>
+      <span class="brand-main">PrimeRidge</span>
+      <span class="brand-sub">Studios</span>
     </a>
 
-    <div class="nav-links">
-      <a href="#home" class="active">Home</a>
+    <div class="nav-links" id="navLinks">
       <a href="#work">Work</a>
+      <a href="#process">Process</a>
       <a href="#services">Services</a>
       <a href="#pricing">Pricing</a>
       <a href="#contact">Contact</a>
     </div>
 
-    <a href="#contact" class="nav-cta">Let’s Talk <span>↗</span></a>
+    <a href="#contact" class="nav-cta">Start Project</a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+    </button>
   </nav>
 </header>
 
 <main>
 
 <section class="hero" id="home">
-  <div class="hero-content">
-    <span class="hero-eyebrow">DESIGN • DEVELOPMENT • DIGITAL GROWTH</span>
+  <div class="hero-copy reveal">
+    <span class="eyebrow">Premium Websites for Local Businesses</span>
 
-    <h1>
-    MAKE YOUR<br>
-    BUSINESS<br>
-    IMPOSSIBLE<br>
-    TO IGNORE
-    </h1>
+    <h1>Websites built to earn trust and drive enquiries.</h1>
 
     <p>
-    Websites built to help your business get noticed,
-    trusted, and contacted.
+      PrimeRidge Studios designs clean, fast, and conversion-focused websites
+for any businesses that want to look professional and get more customers online.
     </p>
 
-    <div class="hero-buttons">
-      <a href="#work" class="btn">VIEW PROJECTS</a>
-      <a href="#contact" class="feature-btn">START PROJECT</a>
+    <div class="hero-actions">
+      <a href="#work" class="btn primary">View Work</a>
+      <a href="#contact" class="btn secondary">Let’s Talk</a>
     </div>
   </div>
 
-  <a href="#work" class="scroll-down" aria-label="Scroll to selected work">
-    <span></span>
-  </a>
+  <div class="hero-showcase reveal reveal-delay-1" aria-hidden="true">
+    <div class="glow-ring"></div>
+
+    <div class="browser-card">
+    <div class="browser-top">
+        <div class="dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <p>primeridgestudios.com/work</p>
+    </div>
+
+    <div class="browser-body">
+        <img src="images/realty.PNG" alt="">
+    </div>
+
+    <div class="floating-note">
+        <strong>Live Website Demos</strong>
+        <span>Built for local businesses</span>
+    </div>
+</div>
+
+    <!-- <div class="floating-note">
+      <strong>Booking-ready</strong>
+      <span>Built for service businesses</span>
+    </div> -->
+  </div>
 </section>
 
-<section class="intro section-soft reveal">
-  <span class="section-label">What we do</span>
-  <h2>Make your business look sharper, clearer, and easier to contact.</h2>
+<section class="intro reveal">
+  <span class="eyebrow">What we do</span>
+  <h2>Websites with a premium business foundation.</h2>
   <p>
-    From booking pages to full business websites, PrimeRidge Studios helps brands
-    turn a simple online presence into something premium, trustworthy, and built for action.
+    We mix clean editorial design with sharp digital systems: booking forms, WhatsApp CTAs,
+    responsive layouts, launch support, and clear pages that make your business easier to trust.
   </p>
 </section>
 
-<section class="section reveal" id="work">
-  <div class="section- reveal">
-    <span class="section-label">Selected work</span>
-    <h2>Live demo websites</h2>
-    <p>
-      Website concepts built for service businesses that need clean design,
-      clear CTAs, and easy inquiries.
-    </p>
+<section class="work section" id="work">
+  <div class="section-head reveal">
+    <span class="eyebrow">Selected demos</span>
+    <h2>Live concepts, not just screenshots.</h2>
+    <p>Demo websites designed around the kind of local businesses that need bookings, enquiries, and a stronger online presence.</p>
   </div>
 
-  <div class="card-grid">
-    <article class="project-card reveal reveal-delay-1">
-      <span class="tag">Barbershop</span>
-      <h3>Luxury Barbershop Website</h3>
-      <p>
-        Premium dark-themed booking experience for modern barbershops, fades,
-        grooming services, and appointments.
-      </p>
-      <a href="https://barbershop.ironstackdigital.com" target="_blank" rel="noopener noreferrer" class="card-btn">View Demo</a>
-    </article>
+  <div class="work-list">
+    <a href="https://barbershop.ironstackdigital.com" target="_blank" rel="noopener noreferrer" class="work-item reveal">
+      <span class="work-number">01</span>
+      <div class="work-copy">
+        <span class="tag">Barbershop</span>
+        <h3>Barbershop Booking Website</h3>
+        <p>Appointments, services, opening hours, and a mobile-first booking flow.</p>
+        <b>View Demo →</b>
+      </div>
+      <div class="work-preview">
+          <img src="images/barbershop.PNG"
+              alt="Barbershop Website Preview">
+      </div>
+    </a>
 
-    <article class="project-card reveal reveal-delay-2">
-      <span class="tag">Hair & Beauty</span>
-      <h3>Hair & Beauty Studio Website</h3>
-      <p>
-        Elegant beauty studio website designed for hair styling, beauty treatments,
-        nails, skincare, and client bookings.
-      </p>
-      <a href="https://beautysalon.ironstackdigital.com" target="_blank" rel="noopener noreferrer" class="card-btn">View Demo</a>
-    </article>
+    <a href="https://beautysalon.ironstackdigital.com" target="_blank" rel="noopener noreferrer" class="work-item reveal reveal-delay-1">
+      <span class="work-number">02</span>
+      <div class="work-copy">
+        <span class="tag">Beauty</span>
+        <h3>Hair & Beauty Studio Website</h3>
+        <p>Elegant brand presence with services, gallery structure, and booking CTAs.</p>
+        <b>View Demo →</b>
+      </div>
+      <div class="work-preview">
+          <img src="images/salon.PNG"
+              alt="Beauty Studio Website Preview">
+      </div>
+    </a>
 
-    <article class="project-card reveal reveal-delay-3">
-      <span class="tag">Tattoo Studio</span>
-      <h3>Tattoo Studio Experience</h3>
-      <p>
-        Cinematic tattoo studio website built for consultations, custom tattoo sessions,
-        flash work, and artist showcases.
-      </p>
-      <a href="https://tattooshop.ironstackdigital.com" target="_blank" rel="noopener noreferrer" class="card-btn">View Demo</a>
-    </article>
+    <a href="https://tattooshop.ironstackdigital.com" target="_blank" rel="noopener noreferrer" class="work-item reveal reveal-delay-2">
+      <span class="work-number">03</span>
+      <div class="work-copy">
+        <span class="tag">Tattoo</span>
+        <h3>Tattoo Studio Experience</h3>
+        <p>Cinematic consultation-focused website for artists, portfolios, and enquiries.</p>
+        <b>View Demo →</b>
+      </div>
+      <div class="work-preview">
+          <img src="images/tattoo-shop.PNG"
+              alt="Tattoo Studio Website Preview">
+      </div>
+    </a>
 
-    <article class="project-card reveal reveal-delay-4">
-      <span class="tag">Real Estate</span>
-      <h3>Luxury Realty Website</h3>
-      <p>
-        High-end real estate showcase designed for agencies, apartments, penthouses,
-        luxury homes, and property listings.
-      </p>
-      <a href="https://realty.ironstackdigital.com" target="_blank" rel="noopener noreferrer" class="card-btn">View Demo</a>
-    </article>
+    <a href="https://realty.ironstackdigital.com" target="_blank" rel="noopener noreferrer" class="work-item reveal reveal-delay-3">
+      <span class="work-number">04</span>
+      <div class="work-copy">
+        <span class="tag">Real Estate</span>
+        <h3>Luxury Realty Website</h3>
+        <p>Property listings, premium visuals, and enquiry-focused pages for agencies.</p>
+        <b>View Demo →</b>
+      </div>
+      <div class="work-preview">
+          <img src="images/realty.PNG"
+              alt="Real Estate Website Preview">
+      </div>
+    </a>
   </div>
 </section>
 
-<section class="section section-dark reveal" id="services">
-  <div class="section-heading">
-    <span class="section-label">Included</span>
-    <h2>Everything needed to launch a polished business website.</h2>
+<section class="process section" id="process">
+  <div class="section-head reveal">
+    <span class="eyebrow">How it works</span>
+    <h2>An easy build process.</h2>
   </div>
 
-  <div class="included-grid">
-    <div class="included-card">
+  <div class="steps">
+    <div class="step reveal"><span>01</span><h3>Discover</h3><p>We define your offer, audience, pages, and website goal.</p></div>
+    <div class="step reveal reveal-delay-1"><span>02</span><h3>Design</h3><p>A clean visual direction is created before development starts.</p></div>
+    <div class="step reveal reveal-delay-2"><span>03</span><h3>Build</h3><p>Your website is built responsive, fast, and easy to navigate.</p></div>
+    <div class="step reveal reveal-delay-3"><span>04</span><h3>Launch</h3><p>Domain, hosting, testing, and final setup are handled properly.</p></div>
+  </div>
+</section>
+
+<section class="services section-dark" id="services">
+
+  <div class="section-head reveal">
+    <span class="eyebrow">Included</span>
+
+    <h2>
+      Everything needed to launch a professional business website.
+    </h2>
+  </div>
+
+  <div class="service-list">
+
+    <div class="service-row">
+      <span>01</span>
       <h3>Mobile-Friendly Website</h3>
-      <p>Clean layout that works properly on phones, tablets, and desktops.</p>
+      <p>Optimized for phones, tablets, and desktop devices.</p>
     </div>
 
-    <div class="included-card">
-      <h3>Booking Request Form</h3>
-      <p>Customers can select a service, date, time, and send their request.</p>
+    <div class="service-row">
+      <span>02</span>
+      <h3>Booking Request Forms</h3>
+      <p>Allow customers to request appointments online.</p>
     </div>
 
-    <div class="included-card">
-      <h3>Email Notification</h3>
-      <p>You receive inquiries and booking requests directly by email.</p>
+    <div class="service-row">
+      <span>03</span>
+      <h3>Email Notifications</h3>
+      <p>Receive enquiries directly to your inbox.</p>
     </div>
 
-    <div class="included-card">
-      <h3>WhatsApp CTA</h3>
-      <p>Customers can contact you quickly through WhatsApp.</p>
+    <div class="service-row">
+      <span>04</span>
+      <h3>WhatsApp Integration</h3>
+      <p>One-click communication for customers.</p>
     </div>
 
-    <div class="included-card">
+    <div class="service-row">
+      <span>05</span>
       <h3>Custom Branding</h3>
-      <p>Business name, colors, services, pricing, and text customized for you.</p>
+      <p>Colors, content, services, and business identity tailored to you.</p>
     </div>
 
-    <div class="included-card">
+    <div class="service-row">
+      <span>06</span>
       <h3>Launch Support</h3>
-      <p>Help with setup, testing, and getting the website ready to share.</p>
+      <p>Setup, testing, and deployment assistance.</p>
     </div>
+
   </div>
+
 </section>
 
-<section class="section reveal" id="pricing">
-  <div class="section-heading">
-    <span class="section-label">Pricing</span>
-    <h2>Packages for businesses.</h2>
+<section class="pricing section" id="pricing">
+
+  <div class="section-head reveal">
+    <span class="eyebrow">Pricing</span>
+
+    <h2>Start lean. Upgrade when needed.</h2>
+
     <p>
-      Start lean, then upgrade when your business needs more pages, updates,
-      or support.
+      Most businesses start with a simple website and expand only when they need more.
     </p>
   </div>
 
-  <div class="pricing-grid">
-    <article class="price-card reveal reveal-delay-2">
-      <h3>Starter</h3>
-      <p class="price">€99–€149</p>
-      <p>Basic one-page website using a preview or free hosting link.</p>
-      <ul>
-        <li>One-page website</li>
-        <li>Booking/request form</li>
-        <li>Email notifications</li>
-        <li>WhatsApp button</li>
-      </ul>
-    </article>
+  <div class="pricing-table reveal">
 
-    <article class="price-card featured reveal reveal-delay-1">
-      <span class="badge">Recommended</span>
-      <h3>Professional</h3>
-      <p class="price">€149–€199</p>
-      <p>Website connected to your own business domain for a more professional presence.</p>
-      <ul>
-        <li>Everything in Starter</li>
-        <li>Custom domain setup</li>
-        <li>Professional business link</li>
-        <li>Launch support</li>
-      </ul>
-    </article>
+    <div class="pricing-header">
+      <div>Features</div>
+      <div>Starter</div>
+      <div>Professional</div>
+      <div>Maintenance</div>
+    </div>
 
-    <article class="price-card reveal reveal-delay-3">
-      <h3>Maintenance</h3>
-      <p class="price">€20/month</p>
-      <p>Optional monthly support for small changes and updates.</p>
-      <ul>
-        <li>Service updates</li>
-        <li>Opening hour changes</li>
-        <li>Text updates</li>
-        <li>Basic support</li>
-      </ul>
-    </article>
+    <div class="pricing-row">
+      <span>Price</span>
+      <strong>€99–149</strong>
+      <strong>€149–199</strong>
+      <strong>€20/mo</strong>
+    </div>
+
+    <div class="pricing-row">
+      <span>One-page website</span>
+      <div>✓</div>
+      <div>✓</div>
+      <div>—</div>
+    </div>
+
+    <div class="pricing-row">
+      <span>Booking / Request Form</span>
+      <div>✓</div>
+      <div>✓</div>
+      <div>—</div>
+    </div>
+
+    <div class="pricing-row">
+      <span>Email Notifications</span>
+      <div>✓</div>
+      <div>✓</div>
+      <div>—</div>
+    </div>
+
+    <div class="pricing-row">
+      <span>WhatsApp Integration</span>
+      <div>✓</div>
+      <div>✓</div>
+      <div>—</div>
+    </div>
+
+    <div class="pricing-row featured-row">
+      <span>Custom Domain Setup</span>
+      <div>—</div>
+      <div>✓</div>
+      <div>—</div>
+    </div>
+
+    <div class="pricing-row">
+      <span>Launch Support</span>
+      <div>—</div>
+      <div>✓</div>
+      <div>—</div>
+    </div>
+
+    <div class="pricing-row">
+      <span>Website Updates</span>
+      <div>—</div>
+      <div>—</div>
+      <div>✓</div>
+    </div>
+
+    <div class="pricing-row">
+      <span>Text & Content Changes</span>
+      <div>—</div>
+      <div>—</div>
+      <div>✓</div>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="featured-build">
+  <div class="featured-visual reveal">
+    <img src="images/tattoo-shop.PNG" alt="Featured website build preview">
+  </div>
+
+  <div class="featured-copy reveal reveal-delay-1">
+    <span class="eyebrow">Featured build</span>
+    <h2>For businesses that need more than a Facebook page.</h2>
+    <p>
+      A strong website gives people one clear place to understand your services,
+      view your work, and take action.
+    </p>
+    <a href="#contact" class="text-link">Discuss a project →</a>
   </div>
 </section>
 
-<section class="cta-section reveal">
-  <div>
-    <span class="section-label">Ready?</span>
-    <h2>Want one like this for your business?</h2>
-    <p>Send a message and we’ll map out a sharp website direction for your brand.</p>
-  </div>
-
-  <a href="#contact" class="btn">Start a Project</a>
-</section>
-
-<section class="section contact reveal" id="contact">
-  <div class="section-heading">
-    <span class="section-label">Contact</span>
+<section class="contact section" id="contact">
+  <div class="section-head reveal">
+    <span class="eyebrow">Contact</span>
     <h2>Tell us what you need.</h2>
     <p>Use the form or message directly on WhatsApp.</p>
   </div>
 
   <div class="contact-layout">
-    <div class="contact-info reveal reveal-delay-1">
-      <h3>PrimeRidge Studios</h3>
 
-      <p>
-        Email:
-        <a href="mailto:info@primeridgestudios.com">info@primeridgestudios.com</a>
-      </p>
+    <div class="contact-sidebar">
+      <div class="contact-info reveal">
+        <h3>PrimeRidge Studios</h3>
+        <p>Email: <a href="mailto:info@primeridgestudios.com">info@primeridgestudios.com</a></p>
+        <p>WhatsApp: <a href="https://wa.me/35679419933" target="_blank" rel="noopener noreferrer">+356 79419933</a></p>
 
-      <p>
-        WhatsApp:
-        <a href="https://wa.me/35679419933" target="_blank" rel="noopener noreferrer">
-          +356 79419933
+        <a href="https://wa.me/35679419933" target="_blank" rel="noopener noreferrer" class="btn primary">
+          Message on WhatsApp
         </a>
-      </p>
 
-      <a href="https://wa.me/35679419933" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-        Message on WhatsApp
-      </a>
+        <div class="contact-next">
+          <span>What happens next</span>
+
+          <ul>
+            <li>We review your business and website goal.</li>
+            <li>You receive a simple direction and price estimate.</li>
+            <li>If it fits, we start with design and structure.</li>
+          </ul>
+        </div>
+
+        <div class="connect-footer">
+  <span>Connect with us</span>
+
+  <div class="social-strip">
+    <a href="#" aria-label="Instagram">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+
+    <a href="#" aria-label="Facebook">
+      <i class="fa-brands fa-facebook-f"></i>
+    </a>
+
+    <a href="#" aria-label="LinkedIn">
+      <i class="fa-brands fa-linkedin-in"></i>
+    </a>
+
+    <a href="#" aria-label="GitHub">
+      <i class="fa-brands fa-github"></i>
+    </a>
+  </div>
+</div>
+
+      </div>
     </div>
 
-    <form action="https://formspree.io/f/mrejobvg" method="POST" class="contact-form reveal reveal-delay-2">
-      <label>
-        Your Name
-        <input type="text" name="Name" placeholder="Enter your name" required />
-      </label>
-
-      <label>
-        Business Name
-        <input type="text" name="Business Name" placeholder="Example: Prime Barbershop" />
-      </label>
-
-      <label>
-        Email Address
-        <input type="email" name="Email" placeholder="you@example.com" required />
-      </label>
-
-      <label>
-        Message
-        <textarea name="Message" rows="5" placeholder="Tell us what you need..." required></textarea>
-      </label>
-
-      <button type="submit" class="btn">Send Inquiry</button>
+    <form action="https://formspree.io/f/mrejobvg" method="POST" class="contact-form reveal reveal-delay-1">
+      <label>Your Name <input type="text" name="Name" placeholder="Enter your name" required /></label>
+      <label>Business Name <input type="text" name="Business Name" placeholder="Example: Prime Barbershop" /></label>
+      <label>Email Address <input type="email" name="Email" placeholder="you@example.com" required /></label>
+      <label>Message <textarea name="Message" rows="5" placeholder="Tell us what you need..." required></textarea></label>
+      <button type="submit" class="btn primary">Send Inquiry</button>
     </form>
+
   </div>
 </section>
 
