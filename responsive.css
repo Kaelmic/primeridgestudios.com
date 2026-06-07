@@ -55,6 +55,58 @@
   }
 }
 
+@media (min-width: 1000px) and (max-height: 820px) {
+  .hero {
+    min-height: 100vh;
+    padding: 125px 7% 55px;
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    align-items: center;
+    gap: 45px;
+    overflow: hidden;
+  }
+
+  .hero h1 {
+    font-size: clamp(58px, 6.2vw, 92px);
+    line-height: 0.92;
+    letter-spacing: -0.075em;
+  }
+
+  .hero p {
+    margin-top: 28px;
+    max-width: 540px;
+    font-size: 18px;
+    line-height: 1.55;
+  }
+
+  .hero-actions {
+    margin-top: 34px;
+  }
+
+  .browser-card,
+  .hero-browser {
+    width: min(100%, 560px);
+    max-height: 440px;
+    margin-left: auto;
+  }
+
+  .browser-body {
+    height: 370px;
+    overflow: hidden;
+  }
+
+  .demo-preview {
+    transform: scale(0.9);
+    transform-origin: top center;
+  }
+
+  .floating-card,
+  .hero-demo-note {
+    bottom: 30px;
+    right: 28px;
+  }
+}
+
 @media (max-width: 950px) {
   .featured-build {
     grid-template-columns: 1fr;
