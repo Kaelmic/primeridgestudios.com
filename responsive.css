@@ -81,37 +81,32 @@
     margin-top: 34px;
   }
 
-  .browser-card {
+  .browser-card{
     width: min(100%, 560px);
     max-height: 440px;
-    margin-left: auto;
   }
 
-  .showcase-body {
-    min-height: 370px;
+  .browser-body{
     height: 370px;
+    min-height: 370px;
   }
 
-  .dashboard-overlay {
-    max-width: 430px;
-    padding: 18px;
+  .browser-dashboard-image{
+    height: 100%;
   }
 
-  .dashboard-overlay p {
-    margin-bottom: 16px;
-    font-size: 14px;
-  }
-
-  .showcase-controls {
-    right: 18px;
-    bottom: 18px;
-  }
-
-  .floating-note {
-    bottom: 30px;
-    right: 28px;
+  /* .floating-note{
+    left: 38px;
+    bottom: 10px;
+    max-width: 300px;
+    border-radius: 500px;
+  } */
+  .floating-note,
+  .dashboard-overlay{
+    display:none;
   }
 }
+
 
 @media (max-width: 950px) {
   .featured-build {

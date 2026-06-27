@@ -356,6 +356,8 @@ svg {
   position: relative;
   overflow: hidden;
 
+  width: min(100%, 560px);
+  margin-left: auto;
   border-radius: 34px;
   overflow: hidden;
 
@@ -412,16 +414,19 @@ svg {
 
 
 .browser-body{
-    position:relative;
-    overflow:hidden;
-    background:#08101f;
+  height: 370px;
+  min-height: 370px;
+  position: relative;
+  overflow: hidden;
+  background:#08101f;
 }
 
 .browser-dashboard-image{
-    width:100%;
+    width: 100%;
+    height: 100%;
     display:block;
     object-fit:cover;
-    object-position:top;
+    object-position:top center;
     transition:.5s;
 }
 
@@ -430,23 +435,17 @@ svg {
 }
 
 .dashboard-overlay{
-    position:absolute;
-    left:20px;
-    right:20px;
-    bottom:20px;
-
-    padding:5px 2px;
-
-    border-radius:16px;
-
-    background:rgba(8,16,31,.68);
-    backdrop-filter:blur(14px);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    color:#fff;
-
-    max-width:420px;
+  position: absolute;
+  left: 24px;
+  right: auto;
+  bottom: 32px;
+  width: min(430px, calc(100% - 48px));
+  padding: 24px 26px;
+  border-radius: 24px;
+  background: rgba(10, 18, 34, .92);
+  border: 1px solid rgba(255,255,255,.12);
+  color: #fff;
+  backdrop-filter: blur(18px);
 }
 
 .demo-badge{
@@ -465,16 +464,15 @@ svg {
 }
 
 .dashboard-overlay h3{
-    margin:12px 0 8px;
-    font-size:1.2rem;
-    line-height:1.2;
+  margin: 12px 0;
+  font-size: 30px;
+  line-height: 1.05;
 }
 
 .dashboard-overlay p{
-    margin:0 0 16px;
-    font-size:.92rem;
-    line-height:1.5;
-    opacity:.82;
+  margin: 0 0 20px;
+  font-size: 15px;
+  line-height: 1.55;
 }
 
 .demo-button{
@@ -483,9 +481,9 @@ svg {
     justify-content:center;
 
     height:40px;
-    padding:0 16px;
-
-    border-radius:10px;
+     min-height: 46px;
+  padding: 0 22px;
+  border-radius: 14px;
 
     font-size:14px;
     font-weight:600;
@@ -499,41 +497,30 @@ svg {
 ========================= */
 
 .floating-note{
-    position:absolute;
-    right:-54px;
-    bottom:52px;
-    z-index:20;
-
-    min-width:80px;
-
-    padding:15px 12px;
-
-    border-radius:18px;
-
-    background:rgba(255,255,255,.94);
-    backdrop-filter:blur(18px);
-
-    border:1px solid rgba(17,17,17,.08);
-
-    box-shadow:
-        0 24px 60px rgba(17,17,17,.18);
-
-    animation:floatCard 5s ease-in-out infinite;
+  position: absolute;
+  right: 28px;
+  bottom: 36px;
+  z-index: 30;
+  min-width: 250px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.94);
+  border: 1px solid rgba(17,17,17,.08);
+  box-shadow: 0 18px 50px rgba(0,0,0,.18);
 }
 
 .floating-note strong{
-    display:block;
-    color:#111;
-    font-size:16px;
-    font-weight:800;
-    line-height:1.2;
+  display: block;
+  color: #111;
+  font-size: 15px;
+  font-weight: 900;
 }
 
 .floating-note span{
-    display:block;
-    margin-top:6px;
-    color:rgba(17,17,17,.60);
-    font-size:13px;
+  display: block;
+  margin-top: 6px;
+  color: rgba(17,17,17,.55);
+  font-size: 13px;
 }
 
 @keyframes floatCard{
@@ -2101,8 +2088,8 @@ svg {
 
 .showcase-controls {
   position: absolute;
-  right: 22px;
-  bottom: 22px;
+  right: 45%;
+  bottom: 35px;
   z-index: 5;
   display: inline-flex;
   gap: 8px;

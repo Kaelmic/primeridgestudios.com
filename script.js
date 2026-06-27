@@ -76,7 +76,8 @@ const showcaseUrl = document.querySelector("[data-showcase-url]");
 const showcaseUrls = [
   "primecare.primeridgestudios.com",
   "realty.primeridgestudios.com",
-  "barbershop.primeridgestudios.com"
+  "barbershop.primeridgestudios.com",
+  "beautysalon.primeridgestudios.com"
 ];
 
 let activeShowcaseIndex = 0;
