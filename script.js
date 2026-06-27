@@ -63,3 +63,71 @@ window.addEventListener("scroll", handleScroll);
 window.addEventListener("load", handleScroll);
 
 handleScroll();
+
+/* =========================
+   Hero Browser Showcase
+========================= */
+
+const showcase = document.querySelector("[data-browser-showcase]");
+const showcaseSlides = document.querySelectorAll(".showcase-slide");
+const showcaseDots = document.querySelectorAll(".showcase-dot");
+const showcaseUrl = document.querySelector("[data-showcase-url]");
+
+const showcaseUrls = [
+  "primecare.primeridgestudios.com",
+  "realty.primeridgestudios.com",
+  "barbershop.primeridgestudios.com"
+];
+
+let activeShowcaseIndex = 0;
+let showcaseTimer;
+
+function showBrowserDemo(index) {
+  if (!showcaseSlides.length) return;
+
+  activeShowcaseIndex = index;
+
+  showcaseSlides.forEach((slide, slideIndex) => {
+    slide.classList.toggle("active", slideIndex === index);
+  });
+
+  showcaseDots.forEach((dot, dotIndex) => {
+    dot.classList.toggle("active", dotIndex === index);
+  });
+
+  if (showcaseUrl && showcaseUrls[index]) {
+    showcaseUrl.textContent = showcaseUrls[index];
+  }
+}
+
+function startBrowserShowcase() {
+  if (showcaseSlides.length <= 1) return;
+
+  clearInterval(showcaseTimer);
+
+  showcaseTimer = setInterval(() => {
+    const nextIndex = (activeShowcaseIndex + 1) % showcaseSlides.length;
+    showBrowserDemo(nextIndex);
+  }, 6500);
+}
+
+if (showcaseSlides.length && showcaseDots.length) {
+  showcaseDots.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      const targetIndex = Number(dot.dataset.showcaseTarget);
+
+      if (!Number.isNaN(targetIndex)) {
+        showBrowserDemo(targetIndex);
+        startBrowserShowcase();
+      }
+    });
+  });
+
+  if (showcase) {
+    showcase.addEventListener("mouseenter", () => clearInterval(showcaseTimer));
+    showcase.addEventListener("mouseleave", startBrowserShowcase);
+  }
+
+  showBrowserDemo(0);
+  startBrowserShowcase();
+}
