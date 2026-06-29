@@ -14,7 +14,6 @@ function closeMenu() {
 /* ── 2. Keep mobile dropdown top aligned with navbar ── */
 function syncNavTop() {
   if (!navbar || !navLinks) return;
-
   navLinks.style.top = `${navbar.offsetHeight}px`;
 }
 
@@ -72,6 +71,11 @@ function onScroll() {
   if (navbar) {
     navbar.classList.toggle("scrolled", window.scrollY > 40);
   }
+
+  /* Close mobile menu on scroll */
+  closeMenu();
+
+  syncNavTop();
 
   ticking = false;
 }

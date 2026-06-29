@@ -33,7 +33,7 @@
 html { scroll-behavior: auto; } /* JS handles smooth scroll with offset */
 
 section[id] {
-  scroll-margin-top: 2px;
+  scroll-margin-top: 72px;
 }
 
 body {
