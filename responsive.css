@@ -1,9 +1,3 @@
-/* ==============================================
-   PrimeRidge Studios — responsive.css
-   Breakpoints: 1600 / 1200 / 1100 / 960 / 860
-                760 / 640 / 480 / 390
-   ============================================== */
-
 /* ── Very wide screens ── */
 @media (min-width: 1600px) {
   .hero { padding-top: 180px; }
@@ -230,6 +224,10 @@
 
   /* Container */
   .container { width: min(calc(100% - 32px), var(--max-width)); }
+
+  section[id] {
+    scroll-margin-top: 18px;
+  }
 }
 
 /* ── Small tablet / large phone (760px and below) ── */
@@ -506,6 +504,10 @@
   /* Pricing */
   .pricing-table { gap: 12px; }
   .pricing-row { padding: 18px; border-radius: 18px; }
+
+  section[id] {
+    scroll-margin-top: 14px;
+  }
 }
 
 /* ── Very small phones (390px and below) ── */

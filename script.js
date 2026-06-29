@@ -1,99 +1,76 @@
-/* ============================================================
-   PrimeRidge Studios — script.js
-   ============================================================ */
-
 const menuToggle = document.getElementById("menuToggle");
-const navLinks   = document.getElementById("navLinks");
-const navbar     = document.querySelector(".navbar");
+const navLinks = document.getElementById("navLinks");
+const navbar = document.querySelector(".navbar");
 
 /* ── 1. Close menu helper ── */
 function closeMenu() {
   if (!menuToggle || !navLinks) return;
+
   menuToggle.classList.remove("open");
   navLinks.classList.remove("open");
   menuToggle.setAttribute("aria-expanded", "false");
 }
 
-/* ── 1b. Keep mobile dropdown top in sync with real navbar height ── */
+/* ── 2. Keep mobile dropdown top aligned with navbar ── */
 function syncNavTop() {
-  if (navbar && navLinks) {
-    const h = navbar.getBoundingClientRect().height;
-    navLinks.style.top = h + "px";
-  }
+  if (!navbar || !navLinks) return;
+
+  navLinks.style.top = `${navbar.offsetHeight}px`;
 }
+
 syncNavTop();
 window.addEventListener("resize", syncNavTop, { passive: true });
-window.addEventListener("scroll", syncNavTop, { passive: true });
 
-/* ── 2. Burger toggle ── */
+/* ── 3. Burger toggle ── */
 if (menuToggle && navLinks) {
   menuToggle.addEventListener("click", (e) => {
     e.stopPropagation();
+
     const isOpen = navLinks.classList.toggle("open");
+
     menuToggle.classList.toggle("open", isOpen);
     menuToggle.setAttribute("aria-expanded", String(isOpen));
   });
 }
 
-/* ── 3. Close on outside tap/click ── */
+/* ── 4. Close on outside tap/click ── */
 document.addEventListener("click", (e) => {
-  if (navbar && !navbar.contains(e.target)) closeMenu();
+  if (navbar && !navbar.contains(e.target)) {
+    closeMenu();
+  }
 });
 
-/* ── 4. Close on Escape ── */
+/* ── 5. Close on Escape ── */
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") closeMenu();
+  if (e.key === "Escape") {
+    closeMenu();
+  }
 });
 
-/* ── 5. Smooth scroll with navbar offset + close menu ──
-   Replaces CSS scroll-behavior: smooth so we can account
-   for the fixed navbar height and land on the section title,
-   not behind it.                                           */
-function getNavHeight() {
-  return navbar ? navbar.getBoundingClientRect().height : 64;
-}
-
-/* Extra breathing room below the navbar (px) */
-const SCROLL_GAP = 8;
-
-function smoothScrollTo(target) {
-  if (!target) return;
-  const top =
-    target.getBoundingClientRect().top +
-    window.scrollY -
-    getNavHeight() -
-    SCROLL_GAP;
-
-  window.scrollTo({ top, behavior: "smooth" });
-}
-
+/* ── 6. Smooth scroll using CSS scroll-margin-top ── */
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", (e) => {
-    const id = anchor.getAttribute("href").slice(1);
-    const target = document.getElementById(id);
-    if (!target) return;          // let browser handle unknown hashes
+    const targetId = anchor.getAttribute("href");
+    const target = document.querySelector(targetId);
+
+    if (!target) return;
+
     e.preventDefault();
-    closeMenu();                  // close mobile menu first
-    smoothScrollTo(target);
+    closeMenu();
+
+    target.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
   });
 });
 
-/* ── 6. Throttled scroll handler (rAF-throttled, passive) ──
-   Avoids firing dozens of times per frame — the main cause
-   of scroll jank on mid-range mobile devices.              */
+/* ── 7. Navbar scroll state ── */
 let ticking = false;
-let lastScrollY = window.scrollY;
 
 function onScroll() {
-  /* Scrolled class — glass navbar on scroll */
   if (navbar) {
     navbar.classList.toggle("scrolled", window.scrollY > 40);
-  }
-
-  /* Close mobile menu if user scrolls more than 10px */
-  if (Math.abs(window.scrollY - lastScrollY) > 10) {
-    closeMenu();
-    lastScrollY = window.scrollY;
   }
 
   ticking = false;
@@ -110,7 +87,7 @@ window.addEventListener(
   { passive: true }
 );
 
-/* ── 7. Reveal on scroll (IntersectionObserver) ── */
+/* ── 8. Reveal on scroll ── */
 const reveals = document.querySelectorAll(".reveal");
 
 if ("IntersectionObserver" in window) {
@@ -119,11 +96,14 @@ if ("IntersectionObserver" in window) {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("active");
-          revealObserver.unobserve(entry.target); // fire once, then stop watching
+          revealObserver.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+    {
+      threshold: 0.12,
+      rootMargin: "0px 0px -40px 0px"
+    }
   );
 
   reveals.forEach((el) => revealObserver.observe(el));

@@ -32,6 +32,10 @@
 
 html { scroll-behavior: auto; } /* JS handles smooth scroll with offset */
 
+section[id] {
+  scroll-margin-top: 2px;
+}
+
 body {
   font-family: "Manrope", Arial, sans-serif;
   font-weight: 500;
@@ -945,7 +949,7 @@ textarea { font-family: inherit; }
 .services {
   position: relative;
   overflow: hidden;
-  padding: 125px 7%;
+  padding: 85px 7%;
   background:
     radial-gradient(circle at 14% 18%, rgba(34, 247, 229, 0.10), transparent 30%),
     radial-gradient(circle at 88% 70%, rgba(79, 140, 255, 0.10), transparent 34%),
@@ -965,7 +969,7 @@ textarea { font-family: inherit; }
 .services-left {
   grid-column: 2;
   position: sticky;
-  top: 300px;
+  top: 100px;
 }
 
 .services-list,
