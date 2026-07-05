@@ -1093,8 +1093,8 @@ textarea { font-family: inherit; }
 .cta-final {
   position: relative;
   overflow: hidden;
-  padding-top: 130px;
-  padding-bottom: 130px;
+  padding-top: 60px;
+  padding-bottom: 100px;
   background:
     radial-gradient(circle at 18% 22%, rgba(79, 140, 255, 0.16), transparent 30%),
     radial-gradient(circle at 86% 80%, rgba(216, 180, 106, 0.11), transparent 34%),
