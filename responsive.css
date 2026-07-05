@@ -27,10 +27,35 @@
   .featured-copy  { order: 0; }
 }
 
+/* 15" laptops (1920x1080, 1366x768, etc.) */
+@media (min-width:1000px) and (max-height:900px){
+
+    .hero{
+        min-height:82vh;
+        min-height:82dvh;
+        padding:120px 7% 70px;
+    }
+
+    .hero h1{
+        font-size:clamp(3.3rem,4.5vw,5rem);
+        max-width:700px;
+    }
+
+    .hero p{
+        margin-top:18px;
+        font-size:1rem;
+    }
+
+    .hero-actions{
+        margin-top:24px;
+    }
+}
+
 /* ── Short landscape desktop viewports ── */
 @media (min-width: 1000px) and (max-height: 840px) {
   .hero {
     min-height: 100vh;
+    min-height: 100dvh;
     padding: 140px 7% 90px;
   }
   .hero h1 {
@@ -112,6 +137,8 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
+    padding-left: max(20px, env(safe-area-inset-left));
+    padding-right: max(20px, env(safe-area-inset-right));
     min-height: 58px;
     background: rgba(4, 9, 20, 0.97);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -142,7 +169,7 @@
     gap: 0;
     padding: 6px 16px 16px;
     background: rgba(4, 9, 20, 0.99);
-    border-bottom: 1px solid rgba(34, 247, 229, 0.10);
+    border-bottom: 1px solid rgba(216, 180, 106, 0.10);
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
@@ -251,28 +278,6 @@
 
   /* ── Mobile Pricing: 3 plan cards stacked ── */
   .pricing-table {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0;
-    border: none;
-    margin-top: 40px;
-  }
-
-  /* Hide the desktop column header */
-  .pricing-header { display: none; }
-
-  /* Each row becomes a feature row inside a card — hidden by default,
-     revealed via the card wrappers built below */
-  .pricing-row {
-    display: none; /* hidden — we re-show only the plan cards */
-  }
-
-  /* Build 3 plan cards using a CSS-only approach:
-     show only the Price row (first pricing-row) as the card header,
-     then list remaining rows as feature lines */
-
-  /* Re-enable all rows but reshape them as a single-plan view */
-  .pricing-table {
     display: flex;
     flex-direction: column;
     gap: 14px;
@@ -344,8 +349,8 @@
   .pricing-row:first-of-type strong:nth-child(4)::before { content: "Digital Partner"; display: block; font-size: 10px; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
 
   .pricing-row:first-of-type strong:nth-child(3) {
-    background: rgba(34, 247, 229, 0.07);
-    border-color: rgba(34, 247, 229, 0.22);
+    background: rgba(216, 180, 106, 0.07);
+    border-color: rgba(216, 180, 106, 0.22);
   }
 
   /* All other rows: feature label + 3 value columns */
@@ -387,7 +392,7 @@
     padding: 12px 4px;
   }
 
-  .featured-row { background: rgba(34, 247, 229, 0.04) !important; }
+  .featured-row { background: rgba(216, 180, 106, 0.04) !important; }
 
   /* Footer: single col links */
   .footer-links { grid-template-columns: repeat(2, 1fr); }
@@ -412,6 +417,28 @@
   }
   .btn { width: 100%; justify-content: center; }
 
+  /* Hero */
+.hero-copy{
+    max-width:100%;
+    text-align:center;
+}
+
+.hero h1{
+    max-width:340px;
+    margin:0 auto;
+    text-align:center;
+}
+
+.hero p{
+    max-width:340px;
+    margin:20px auto 0;
+    text-align:center;
+}
+
+.hero-actions{
+    justify-content:center;
+}
+
   /* Sections */
   .intro,
   .section,
@@ -429,7 +456,20 @@
   .cta-inner p { font-size: 15px; }
 
   /* Section head margin */
-  .section-head { margin-bottom: 40px; }
+  .section-head {
+    margin-bottom: 40px; 
+    text-align: left;
+}
+
+  .section-head h2 {
+    text-wrap: balance;
+    line-height: 0.95;
+    max-width: 340px;
+  }
+
+  .section-head .eyebrow {
+    margin-left: 0;
+  }
 
   /* Steps: single column */
   .steps { grid-template-columns: 1fr; }
@@ -529,6 +569,18 @@
 
   .solution-panel,
   .solution-card { padding: 18px; border-radius: 20px; }
+
+  /* Pricing grid is the densest layout on the page — give it a touch more room */
+  .pricing-row:not(:first-of-type) {
+    grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  }
+  .pricing-row:not(:first-of-type) span,
+  .pricing-row:not(:first-of-type) div,
+  .pricing-row:not(:first-of-type) strong {
+    font-size: 11px;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
 }
 
 /* ── Reduced motion ── */
@@ -541,5 +593,65 @@
     opacity: 1;
     transform: none;
     transition: none;
+  }
+}
+
+
+/* ── Redesign overrides ── */
+@media (max-width: 1200px) {
+  .hero {
+    padding: 140px 6% 100px;
+    background-position: 64% center;
+  }
+}
+
+@media (max-width: 860px) {
+  .hero {
+    min-height: 92vh;
+    min-height: 92dvh;
+    padding: 122px 6% 78px;
+    background:
+      linear-gradient(180deg, rgba(5, 7, 11, 0.74) 0%, rgba(5, 7, 11, 0.94) 58%, #06070b 100%),
+      url("images/hero-primeridge-tech.png") 68% center / cover no-repeat,
+      #06070b;
+  }
+
+  .hero-copy {
+    max-width: 680px;
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 10vw, 74px);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: 88vh;
+    min-height: 88dvh;
+    padding: 106px 5% 66px;
+    background:
+      linear-gradient(180deg, rgba(5, 7, 11, 0.82) 0%, rgba(5, 7, 11, 0.96) 64%, #06070b 100%),
+      url("images/hero-primeridge-tech.png") 71% center / cover no-repeat,
+      #06070b;
+  }
+
+  .hero h1 {
+    font-size: clamp(38px, 12vw, 60px);
+    line-height: 0.98;
+  }
+
+  .hero-proof {
+    gap: 8px;
+  }
+
+  .hero-proof span {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    background-position: 75% center;
   }
 }
