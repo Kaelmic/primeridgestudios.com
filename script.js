@@ -96,19 +96,19 @@ const reveals = document.querySelectorAll(".reveal");
 
 if ("IntersectionObserver" in window) {
   const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.12,
-      rootMargin: "0px 0px -40px 0px"
-    }
-  );
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  {
+    threshold: 0.1,
+    rootMargin: "0px 0px -80px 0px"
+  }
+);
 
   reveals.forEach((el) => revealObserver.observe(el));
 } else {
