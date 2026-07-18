@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Agent Portal | PrimeNest Malta</title>
+
+  <link rel="stylesheet" href="login.css">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.png" />
+
+</head>
+<body>
+
+    <a href="index.html" class="back-home">
+        ← Back to Website
+    </a>
+
+<div class="login-layout">
+
+  <div class="login-left">
+    <div class="login-brand">
+      <span>PRIMENEST</span>
+      <small>MALTA</small>
+    </div>
+
+    <h1>Agent Portal</h1>
+
+    <p>
+      Secure access for property agents to manage listings,
+      inquiries, and client requests.
+    </p>
+  </div>
+
+  <div class="login-right">
+
+    <form class="login-card" id="loginForm">
+
+      <p class="login-label">SIGN IN</p>
+
+      <h2>Welcome back</h2>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="agent@primenest.mt"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="••••••••"
+          required
+        >
+      </div>
+
+      <p id="loginError" class="login-error" role="alert" aria-live="assertive"></p>
+
+      <button type="submit">
+        Sign In
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
+
+<script src="login.js"></script>
+
+</body>
+</html>

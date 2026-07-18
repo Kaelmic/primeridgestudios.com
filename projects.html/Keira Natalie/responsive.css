@@ -1,0 +1,201 @@
+@media (max-width: 1050px) {
+  .site-header {
+    grid-template-columns: 1fr auto;
+  }
+  .primary-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 28px;
+    flex-direction: column;
+    align-items: flex-start;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+  }
+  .primary-nav.open {
+    display: flex;
+  }
+  .nav-toggle {
+    display: flex;
+  }
+  .nav-cta {
+    display: none;
+  }
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .hero-media {
+    min-height: 62vw;
+    order: 2;
+  }
+  .hero-copy {
+    min-height: 680px;
+  }
+  .studio-section {
+    grid-template-columns: 1fr;
+  }
+  .studio-collage {
+    min-height: 700px;
+  }
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .team-member-featured .team-photo {
+    aspect-ratio: 0.74;
+  }
+  .reviews-section {
+    grid-template-columns: 1fr auto;
+  }
+  .review-label {
+    grid-column: 1 / -1;
+  }
+  .booking-section {
+    grid-template-columns: 1fr;
+  }
+  .booking-context {
+    position: static;
+  }
+  #success-message {
+    grid-column: 1;
+    margin-top: 0;
+  }
+  .contact-section {
+    grid-template-columns: 1fr 1fr;
+  }
+  .contact-map {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 720px) {
+  .site-header {
+    min-height: 72px;
+    padding: 0 20px;
+  }
+  .hero {
+    min-height: auto;
+  }
+  .hero-copy {
+    min-height: 580px;
+    padding: 64px 24px 42px;
+  }
+  .hero-copy h1 {
+    font-size: clamp(3.8rem, 18vw, 5.6rem);
+  }
+  .hero-media {
+    min-height: 92vw;
+  }
+  .hero-details {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding-top: 54px;
+  }
+  .intro-strip {
+    min-height: 110px;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+  }
+  .split-heading {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 52px;
+  }
+  .service-item {
+    grid-template-columns: 34px 1fr auto;
+    gap: 16px;
+  }
+  .service-price {
+    grid-column: 2;
+  }
+  .service-item > a {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+  }
+  .studio-section {
+    min-height: auto;
+  }
+  .studio-copy {
+    padding: 90px 24px;
+  }
+  .studio-collage {
+    min-height: 580px;
+  }
+  .visual-studio-large {
+    inset: 0 8% 0 0;
+  }
+  .visual-studio-small {
+    width: 46%;
+  }
+  .team-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 12px;
+  }
+  .team-member > div:last-child {
+    display: block;
+  }
+  .gallery-topline {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 210px;
+  }
+  .gallery-one {
+    grid-row: span 2;
+  }
+  .gallery-four {
+    grid-column: span 1;
+  }
+  .gallery-five {
+    grid-column: span 2;
+  }
+  .reviews-section {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .testimonial-track {
+    min-height: 300px;
+  }
+  .testimonial-controls {
+    justify-self: start;
+  }
+  .booking-form {
+    grid-template-columns: 1fr;
+  }
+  .full {
+    grid-column: 1;
+  }
+  .contact-section {
+    grid-template-columns: 1fr;
+  }
+  .contact-map {
+    grid-column: 1;
+  }
+  .footer-main {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px 20px;
+  }
+  .footer-main > div:first-child {
+    grid-column: 1 / -1;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 6px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.001ms !important;
+  }
+}

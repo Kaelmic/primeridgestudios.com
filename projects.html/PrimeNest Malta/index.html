@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="PrimeNest Malta — browse apartments, penthouses and townhouses for sale or rent across Sliema, St. Julian's and Rabat." />
+  <meta name="theme-color" content="#0f1115" />
+
+  <title>PrimeNest Malta</title>
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="responsive.css" />
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.png" />
+
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <span>PRIMENEST</span>
+        <small>MALTA</small>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#top">Home</a></li>
+          <li><a href="#properties">Properties</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <!-- <li><a href="#admin-preview">Admin</a></li> -->
+        </ul>
+      </nav>
+
+      <a href="#contact" class="contact-btn">
+        Contact Us
+      </a>
+
+      <button
+        type="button"
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobileNav"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <ul class="mobile-nav-links">
+      <li><a href="#top">Home</a></li>
+      <li><a href="#properties">Properties</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn primary-btn mobile-nav-cta">Contact Agent</a>
+  </div>
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop"></div>
+
+
+  <section class="hero" id="top">
+    <div class="hero-overlay"></div>
+    <div class="hero-parallax"></div>
+
+    <div class="hero-content">
+      <!-- <p class="hero-label">Selected homes across Malta</p> -->
+
+      <h1>
+  Helping you find the right
+  <span>property in Malta.</span>
+</h1>
+
+<p class="hero-text">
+  Whether you're buying, selling, or renting, we're here to guide you every step of the way.
+</p>
+
+      <div class="hero-buttons">
+        <a href="#properties" class="btn primary-btn">
+          View Properties
+        </a>
+
+        <a href="#contact" class="btn secondary-btn">
+          Contact Agent
+        </a>
+      </div>
+
+      <!-- <div class="scroll-indicator">
+        <span></span>
+        SCROLL DOWN
+      </div> -->
+    </div>
+  </section>
+
+
+  <section id="properties" class="properties-section reveal">
+  <div class="section-header">
+    <p class="section-label">Featured Listings</p>
+    <h2>Explore Properties in Malta</h2>
+    <p>Browse selected homes, apartments, and rental opportunities across Malta.</p>
+  </div>
+
+  <div class="property-filters">
+  <select id="filterStatus">
+    <option value="all">Buy or Rent</option>
+    <option value="sale">For Sale</option>
+    <option value="rent">For Rent</option>
+  </select>
+
+  <select id="filterLocation">
+    <option value="all">Location</option>
+    <option value="sliema">Sliema</option>
+    <option value="st-julians">St. Julian's</option>
+    <option value="rabat">Rabat</option>
+  </select>
+
+  <select id="filterType">
+    <option value="all">Property Type</option>
+    <option value="apartment">Apartment</option>
+    <option value="penthouse">Penthouse</option>
+    <option value="maisonette">Maisonette</option>
+    <option value="villa">Villa</option>
+  </select>
+
+  <select id="filterBedrooms">
+    <option value="all">Bedrooms</option>
+    <option value="1">1+</option>
+    <option value="2">2+</option>
+    <option value="3">3+</option>
+  </select>
+
+  <button id="resetFilters">Reset</button>
+</div>
+
+  <div class="property-grid">
+    <article class="property-card reveal" data-status="sale"
+  data-location="sliema"
+  data-type="apartment"
+  data-bedrooms="2">
+      <div class="property-image img-1">
+        <span>For Sale</span>
+      </div>
+      <div class="property-info">
+        <h3>Modern Apartment in Sliema</h3>
+        <p class="location">Sliema, Malta</p>
+        <p class="price">€385,000</p>
+        <div class="property-meta">
+          <span>2 Beds</span>
+          <span>2 Baths</span>
+          <span>110m²</span>
+        </div>
+        <a href="#property-preview" class="property-link">View Details</a>
+      </div>
+    </article>
+
+    <article class="property-card reveal" data-status="rent"
+  data-location="st-julians"
+  data-type="penthouse"
+  data-bedrooms="3">
+      <div class="property-image img-2">
+        <span>For Rent</span>
+      </div>
+      <div class="property-info">
+        <h3>Luxury Penthouse with Sea View</h3>
+        <p class="location">St. Julian’s, Malta</p>
+        <p class="price">€2,200 / month</p>
+        <div class="property-meta">
+          <span>3 Beds</span>
+          <span>2 Baths</span>
+          <span>160m²</span>
+        </div>
+        <a href="#property-preview" class="property-link">View Details</a>
+      </div>
+    </article>
+
+    <article class="property-card reveal" data-status="sale"
+  data-location="rabat"
+  data-type="apartment"
+  data-bedrooms="4">
+      <div class="property-image img-3">
+        <span>For Sale</span>
+      </div>
+      <div class="property-info">
+        <h3>Townhouse with Private Yard</h3>
+        <p class="location">Rabat, Malta</p>
+        <p class="price">€520,000</p>
+        <div class="property-meta">
+          <span>4 Beds</span>
+          <span>3 Baths</span>
+          <span>220m²</span>
+        </div>
+        <a href="#property-preview" class="property-link">View Details</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+
+<section id="property-preview" class="single-property reveal">
+  <div class="single-property-grid">
+    <div class="property-gallery">
+      <div class="main-preview"></div>
+
+      <div class="thumbnail-row">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+    <div class="property-details">
+      <p class="section-label">Property Preview</p>
+      <h2>Modern Apartment in Sliema</h2>
+      <p class="location">Sliema, Malta</p>
+      <p class="price large">€385,000</p>
+
+      <div class="property-meta detail-meta">
+        <span>2 Bedrooms</span>
+        <span>2 Bathrooms</span>
+        <span>110m²</span>
+      </div>
+
+      <p class="property-description">
+        A clean and modern apartment located in one of Malta’s most requested areas.
+        This mockup shows how each property page could display photos, price,
+        features, location, and inquiry options.
+      </p>
+
+      <a href="#contact" class="btn primary-btn">Ask About This Property</a>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about-section reveal">
+  <div class="about-grid">
+    <div>
+      <p class="section-label">About PrimeNest</p>
+      <h2>Local property guidance with a calmer, more personal approach.</h2>
+    </div>
+
+    <div class="about-copy">
+      <p>
+        PrimeNest Malta is built around simple property browsing, clear communication,
+        and practical support for people looking to buy, rent, or list a property in Malta.
+      </p>
+
+      <p>
+        Instead of overwhelming visitors with endless listings, the experience is designed
+        to help clients understand their options, request viewings, and move forward with confidence.
+      </p>
+    </div>
+  </div>
+
+  <div class="about-highlights">
+    <div>
+      <strong>01</strong>
+      <span>Curated property presentation</span>
+    </div>
+
+    <div>
+      <strong>02</strong>
+      <span>Viewing request support</span>
+    </div>
+
+    <div>
+      <strong>03</strong>
+      <span>Clear buyer and renter guidance</span>
+    </div>
+  </div>
+</section>
+
+
+<section id="services" class="services-section reveal">
+  <div class="section-header">
+    <p class="section-label">Services</p>
+    <h2>Support for buyers, renters, sellers, and property owners.</h2>
+    <p>
+      A simple service structure designed for real estate agencies, independent agents,
+      and property businesses that want a cleaner online presence.
+    </p>
+  </div>
+
+  <div class="services-grid">
+    <article class="service-item">
+      <span>01</span>
+      <h3>Property Sales</h3>
+      <p>
+        Present homes for sale with clear pricing, property details, location information,
+        and simple inquiry options.
+      </p>
+    </article>
+
+    <article class="service-item">
+      <span>02</span>
+      <h3>Rental Listings</h3>
+      <p>
+        Showcase available rentals with monthly pricing, features, and viewing request options
+        for interested tenants.
+      </p>
+    </article>
+
+    <article class="service-item">
+      <span>03</span>
+      <h3>Property Management</h3>
+      <p>
+        Organise listings, inquiries, rental status, and property information from one clean
+        management area.
+      </p>
+    </article>
+
+    <article class="service-item">
+      <span>04</span>
+      <h3>Client Inquiries</h3>
+      <p>
+        Make it easier for visitors to contact the agency, ask questions, and request property
+        viewings without confusion.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section id="contact" class="contact-section reveal">
+  <div class="inquiry-wrap">
+    <div class="inquiry-copy">
+      <p class="section-label">Private Inquiry</p>
+      <h2>Tell us what kind of property you are looking for.</h2>
+      <p>
+        Share your preferred location, budget, and viewing schedule. 
+        Our team will review your enquiry and get back to you with suitable options.
+      </p>
+
+      <div class="inquiry-points">
+        <span>01 Malta-based listings</span>
+        <span>02 Viewing request support</span>
+        <span>03 Sale and rental enquiries</span>
+      </div>
+    </div>
+
+    <form class="property-inquiry-form" id="inquiryForm">
+      <div class="form-row">
+        <div class="form-field">
+          <label>Full Name</label>
+          <input type="text" placeholder="Your name" required>
+        </div>
+
+        <div class="form-field">
+          <label>Email Address</label>
+          <input type="email" placeholder="you@example.com" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label>Looking For</label>
+          <select required>
+            <option value="">Select option</option>
+            <option>Buy a property</option>
+            <option>Rent a property</option>
+            <option>Book a viewing</option>
+            <option>General property advice</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label>Preferred Location</label>
+          <input type="text" placeholder="e.g. Sliema, Mosta, Rabat">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label>Budget Range</label>
+          <input type="text" placeholder="e.g. €250,000 - €400,000">
+        </div>
+
+        <div class="form-field">
+          <label>Viewing Timeline</label>
+          <select>
+            <option value="">Select timeline</option>
+            <option>As soon as possible</option>
+            <option>This week</option>
+            <option>This month</option>
+            <option>Still researching</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label>Message</label>
+        <textarea placeholder="Tell us more about what you need..." rows="5"></textarea>
+      </div>
+
+      <p id="inquiryFeedback" class="inquiry-feedback" role="status" aria-live="polite"></p>
+
+      <button type="submit" class="inquiry-submit">Send Property Inquiry</button>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-content">
+
+    <div class="footer-brand">
+      <strong>PrimeNest Malta</strong>
+    </div>
+
+    <div class="footer-links">
+      <a href="#">Home</a>
+      <a href="#properties">Properties</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div class="footer-admin">
+      <a href="login.html" aria-label="Agent Portal">
+        <img src="images/login-svgrepo-com.svg" alt="">
+      </a>
+    </div>
+
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reserve a Table | Harbor Table</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="navbar scrolled">
+  <div class="container nav-wrapper">
+    <a href="index.html" class="logo">
+      <span>Harbor</span>
+      <span>Table</span>
+    </a>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#menu">Menu</a></li>
+        <li><a href="#">Experience</a></li>
+        <li><a href="reservation.html" class="active">Reservations</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <a href="reservation.html" class="nav-btn">Reserve</a>
+  </div>
+</header>
+
+<main class="reservation-page">
+  <section class="reservation-hero">
+    <div class="container reservation-page-grid">
+
+      <div class="reservation-page-copy">
+        <span class="eyebrow">Reservations</span>
+
+        <h1>Complete Your Reservation</h1>
+
+        <p>
+          Share your details and any special requests. Our team will confirm
+          your table shortly.
+        </p>
+      </div>
+
+      <aside class="reservation-summary">
+        <span>Your Reservation</span>
+
+        <strong id="summaryDate">Select a Date</strong>
+        <strong id="summaryTime">Select Time</strong>
+        <strong id="summaryGuests">Select Guests</strong>
+      </aside>
+
+    </div>
+  </section>
+
+  <section class="reservation-form-section">
+    <div class="container reservation-form-grid">
+
+      <form class="full-reservation-form" action="reservation-success.html">
+
+        <div class="form-row">
+          <div class="form-field">
+            <label>First Name</label>
+            <input type="text" required>
+          </div>
+
+          <div class="form-field">
+            <label>Last Name</label>
+            <input type="text" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label>Email</label>
+            <input type="email" required>
+          </div>
+
+          <div class="form-field">
+            <label>Phone</label>
+            <input type="tel" required>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label>Occasion</label>
+          <select>
+            <option>None</option>
+            <option>Birthday</option>
+            <option>Anniversary</option>
+            <option>Business Dinner</option>
+            <option>Date Night</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label>Special Requests</label>
+          <textarea rows="5" placeholder="Dietary requirements, seating preference, or anything we should know."></textarea>
+        </div>
+
+        <button class="booking-btn form-submit" type="submit">
+          Send Reservation →
+        </button>
+
+      </form>
+
+    </div>
+  </section>
+</main>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+
+  document.getElementById("summaryDate").textContent =
+    params.get("date") || "Select a Date";
+
+  document.getElementById("summaryTime").textContent =
+    params.get("time") || "Select Time";
+
+  document.getElementById("summaryGuests").textContent =
+    params.get("guests") || "Select Guests";
+</script>
+
+</body>
+</html>

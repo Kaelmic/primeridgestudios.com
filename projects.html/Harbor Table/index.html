@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Harbor Table</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.png" />
+  
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&family=Allura&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="container nav-wrapper">
+
+        <a href="#" class="logo">
+  <span>Harbor</span>
+  <span>Table</span>
+</a>
+
+        <nav>
+
+            <ul>
+
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#reservation">Reservations</a></li>
+                <li><a href="#">Contact</a></li>
+
+            </ul>
+
+        </nav>
+
+        <a href="#reservation" class="nav-btn">
+            Reserve Table
+        </a>
+
+    </div>
+
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-overlay"></div>
+
+<div class="hero-center">
+
+    <span class="hero-kicker">
+        Contemporary Steakhouse
+    </span>
+
+    <h1 class="hero-title">
+  Crafted for<br>
+  Slow Evenings
+</h1>
+
+    <div class="hero-location">
+        <span></span>
+        <p>Malta</p>
+        <span></span>
+    </div>
+
+    <p class="hero-description">
+        Premium cuts. Fine wines. Memorable moments.
+    </p>
+
+</div>
+
+  <a href="#about" class="scroll-indicator">
+    <span class="scroll-line"></span>
+    <span class="scroll-dot"></span>
+    <small>Scroll to Discover</small>
+  </a>
+</section>
+
+<section class="menu-preview" id="menu">
+  <div class="container menu-header">
+
+    <div class="menu-title">
+
+        <span class="eyebrow">
+            From the Kitchen
+        </span>
+
+        <h2>
+            Chef’s Selectionl
+        </h2>
+
+    </div>
+
+    <div class="menu-intro">
+
+        <p>
+            Seasonal dishes crafted with premium ingredients,
+            slow cooking, and timeless techniques.
+        </p>
+
+        <a href="#" class="menu-link">
+            View Full Menu →
+        </a>
+
+    </div>
+
+</div>
+
+  <div class="container menu-editorial">
+    <article class="menu-feature large">
+      <img src="images/Charred Ribeye.png" alt="Chargrilled ribeye steak with herbs">
+      <div class="menu-copy">
+        <h3>Charred Ribeye</h3>
+        <p>Dry-aged beef, smoked sea salt, rosemary jus, and roasted garlic.</p>
+      </div>
+    </article>
+
+    <article class="menu-feature">
+      <img src="images/tai-oli-h6QSZVPXnC0-unsplash.jpg" alt="Wine pairing with candlelit dining table">
+      <div class="menu-copy">
+        <h3>Cellar Pairing</h3>
+        <p>Full-bodied reds selected to complement richer cuts and slow-roasted dishes.</p>
+      </div>
+    </article>
+
+    <article class="menu-feature">
+      <img src="images/Dark Chocolate Crémeux.png" alt="Elegant chocolate dessert on a dark plate">
+      <div class="menu-copy">
+        <h3>Dark Chocolate Crémeux</h3>
+        <p>Silky chocolate, espresso cream, toasted hazelnut, and sea salt.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="reservation-preview" id="reservation">
+  <div class="container reservation-inner">
+    <div class="reservation-copy">
+      <span class="eyebrow">Reservations</span>
+
+      <h2>Reserve Your Evening</h2>
+
+      <p>
+        Choose a date, party size, and dining time. Complete the details on the reservation page.
+      </p>
+    </div>
+
+    <div class="booking-bar">
+  <button class="booking-display" data-modal="date">
+    <span>Date</span>
+    <strong id="selectedDate">Select a Date</strong>
+  </button>
+
+  <button class="booking-display" data-modal="guests">
+    <span>Guests</span>
+    <strong id="selectedGuests">Select Guests</strong>
+  </button>
+
+  <button class="booking-display" data-modal="time">
+    <span>Time</span>
+    <strong id="selectedTime">Select Time</strong>
+  </button>
+
+  <button class="booking-btn" id="reserveBtn">
+    Reserve →
+  </button>
+</div>
+  </div>
+</section>
+
+<div class="booking-modal" id="bookingModal">
+  <div class="modal-panel">
+    <button class="modal-close" id="modalClose">×</button>
+
+    <h3 id="modalTitle">Select</h3>
+
+    <div class="modal-options" id="modalOptions"></div>
+  </div>
+</div>
+
+<footer class="footer">
+
+    <div class="container footer-inner">
+
+        <div class="footer-brand">
+
+            <h2>Harbor Table</h2>
+
+            <p>
+                Est. 2026<br>
+Valletta, Malta
+            </p>
+
+        </div>
+
+        <div class="footer-contact">
+
+            <div>
+
+                <span>Email</span>
+
+                <a href="mailto:hello@harbortable.mt">
+                    hello@harbortable.mt
+                </a>
+
+            </div>
+
+            <div>
+
+                <span>Telephone</span>
+
+                <a href="tel:+35620123456">
+                    +356 20 123 456
+                </a>
+
+            </div>
+
+            <div>
+
+                <span>Location</span>
+
+                <p>
+                   <a href="#">
+    Valletta, Malta
+</a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <div class="container">
+            <section class="footer-cta">
+
+    <span class="eyebrow">
+        We look forward to welcoming you.
+    </span>
+
+</section>
+
+            <p>
+                © 2026 Harbor Table. All rights reserved.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

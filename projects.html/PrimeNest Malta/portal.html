@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Agent Portal | PrimeNest Malta</title>
+
+  <link rel="stylesheet" href="portal.css" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.png" />
+
+  <script>
+  if (localStorage.getItem("loggedIn") !== "true") {
+    window.location.href = "login.html";
+  }
+  </script>
+
+</head>
+<body>
+
+<div class="portal-layout">
+
+  <aside class="portal-sidebar">
+    <a href="index.html" class="portal-logo">
+      <span>PRIMENEST</span>
+      <small>MALTA</small>
+    </a>
+
+    <nav class="portal-nav">
+      <a href="#" class="active">Dashboard</a>
+      <a href="#">Properties</a>
+      <a href="#">Add New</a>
+      <a href="#">Messages</a>
+      <a href="#">Settings</a>
+    </nav>
+
+    <a href="index.html" class="logout-link" id="logoutBtn">
+      <img src="images/log-out-svgrepo-com.svg" alt="">
+      <span>Log Out</span>
+    </a>
+
+  </aside>
+
+  <main class="portal-main">
+
+    <header class="portal-header">
+      <div>
+        <p class="section-label">Agent Portal</p>
+        <h1>Property Management</h1>
+      </div>
+
+      <button id="addPropertyBtn">Add Property</button>
+    </header>
+
+    <p id="portalToast" class="portal-toast" role="status" aria-live="polite"></p>
+
+    <section class="stats-grid">
+      <div class="stat-card">
+        <strong>24</strong>
+        <span>Total Listings</span>
+      </div>
+
+      <div class="stat-card">
+        <strong>8</strong>
+        <span>For Rent</span>
+      </div>
+
+      <div class="stat-card">
+        <strong>16</strong>
+        <span>For Sale</span>
+      </div>
+    </section>
+
+    <section class="portal-panel">
+      <div class="panel-top">
+        <h2>Property Listings</h2>
+        <p>Manage current listings and property information.</p>
+      </div>
+
+      <div class="listing-table">
+        <div class="table-row table-head">
+          <span>Property</span>
+          <span>Status</span>
+          <span>Price</span>
+          <span>Action</span>
+        </div>
+
+        <div class="table-row">
+          <span>Sliema Apartment</span>
+          <span><em class="badge sale">For Sale</em></span>
+          <span>€385,000</span>
+          <span><a href="#" class="edit-link">Edit</a></span>
+        </div>
+
+        <div class="table-row">
+          <span>St. Julian’s Penthouse</span>
+          <span><em class="badge rent">For Rent</em></span>
+          <span>€2,200/mo</span>
+          <span><a href="#" class="edit-link">Edit</a></span>
+        </div>
+
+        <div class="table-row">
+          <span>Rabat Townhouse</span>
+          <span><em class="badge sale">For Sale</em></span>
+          <span>€520,000</span>
+          <span><a href="#" class="edit-link">Edit</a></span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</div>
+
+<script>
+document
+  .getElementById("logoutBtn")
+  .addEventListener("click", function(e){
+
+    e.preventDefault();
+
+    localStorage.removeItem("loggedIn");
+
+    window.location.href = "login.html";
+
+});
+
+// Placeholder feedback for actions with no backend wired up yet.
+// Replace these with real navigation/API calls once property CRUD endpoints exist.
+const portalToast = document.getElementById("portalToast");
+
+function showToast(message) {
+  portalToast.textContent = message;
+  portalToast.classList.add("show");
+  clearTimeout(showToast._t);
+  showToast._t = setTimeout(() => portalToast.classList.remove("show"), 2600);
+}
+
+document.getElementById("addPropertyBtn").addEventListener("click", () => {
+  showToast("Add Property form isn't connected yet — this is a placeholder for the upcoming listing editor.");
+});
+
+document.querySelectorAll(".edit-link").forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    showToast("Editing isn't connected yet — this will open the listing editor once it's built.");
+  });
+});
+</script>
+
+</body>
+</html>
