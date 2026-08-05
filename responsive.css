@@ -1,15 +1,10 @@
-/* ── Very wide screens ── */
-@media (min-width: 1600px) {
-  .hero { padding-top: 180px; }
-}
-
 /* ── Large screens (1200px and below) ── */
 @media (max-width: 1200px) {
   .navbar { padding: 0 32px; }
   .nav-links { gap: 0; }
 
-  .hero { padding: 170px 6% 110px; }
-  .hero h1 { font-size: clamp(54px, 9vw, 94px); }
+  
+  
 
   /* Steps: 2-column */
   .steps { grid-template-columns: repeat(2, 1fr); }
@@ -27,49 +22,47 @@
   .featured-copy  { order: 0; }
 }
 
+@media (min-width: 1101px) {
+  .work,
+  .work-inner {
+    overflow: visible;
+  }
+
+  .work-inner {
+    align-items: start;
+  }
+
+  .work-sticky,
+  .work-head {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 110px;
+    align-self: start;
+    height: fit-content;
+    min-height: 0;
+    transform: none !important;
+    will-change: auto !important;
+  }
+}
+
 /* 15" laptops (1920x1080, 1366x768, etc.) */
 @media (min-width:1000px) and (max-height:900px){
 
-    .hero{
-        min-height:82vh;
-        min-height:82dvh;
-        padding:120px 7% 70px;
-    }
+    
 
-    .hero h1{
-        font-size:clamp(3.3rem,4.5vw,5rem);
-        max-width:700px;
-    }
+    
 
-    .hero p{
-        margin-top:18px;
-        font-size:1rem;
-    }
+    
 
-    .hero-actions{
-        margin-top:24px;
-    }
+    
 }
 
 /* ── Short landscape desktop viewports ── */
 @media (min-width: 1000px) and (max-height: 840px) {
-  .hero {
-    min-height: 100vh;
-    min-height: 100dvh;
-    padding: 140px 7% 90px;
-  }
-  .hero h1 {
-    max-width: 900px;
-    font-size: clamp(52px, 6.6vw, 90px);
-    line-height: 0.9;
-  }
-  .hero p {
-    margin-top: 26px;
-    max-width: 650px;
-    font-size: 17px;
-    line-height: 1.65;
-  }
-  .hero-actions { margin-top: 32px; }
+  
+  
+  
+  
 }
 
 /* ── Medium screens (1100px and below) ── */
@@ -126,6 +119,21 @@
   .pricing-row {
     grid-template-columns: 1.4fr 1fr 1fr 1fr;
   }
+
+  .primenest-video {
+    height: auto;
+    min-height: 0;
+  }
+
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  
+
+  
+
+  
 }
 
 /* ── Mobile nav (860px and below) ── */
@@ -230,9 +238,9 @@
   .nav-links a.active::after { color: var(--accent-2); }
 
   /* Hero */
-  .hero { padding: 130px 6% 80px; }
-  .hero h1 { font-size: clamp(44px, 11vw, 76px); }
-  .hero p { font-size: 16px; }
+  
+  
+  
 
   /* Shared section padding */
   .intro,
@@ -259,7 +267,7 @@
 
 /* ── Small tablet / large phone (760px and below) ── */
 @media (max-width: 760px) {
-  .hero { padding-top: 118px; }
+  
 
   /* Solution cards: full-width single column */
   .solution-panel,
@@ -406,38 +414,26 @@
   .brand-sub  { font-size: 9px; letter-spacing: 0.24em; }
 
   /* Hero */
-  .hero { padding: 110px 5% 68px; }
-  .hero h1 { font-size: clamp(40px, 12vw, 64px); line-height: 0.93; }
-  .hero p  { font-size: 15px; line-height: 1.7; margin-top: 20px; }
-  .hero-actions {
-    flex-direction: column;
-    width: 100%;
-    gap: 10px;
-    margin-top: 28px;
+  .hero-copy {
+    transform: translateY(-20px);
   }
+
+  .hero-copy::before {
+    inset: -50px -30px;
+  }
+  
+  
+  
   .btn { width: 100%; justify-content: center; }
 
   /* Hero */
-.hero-copy{
-    max-width:100%;
-    text-align:center;
-}
 
-.hero h1{
-    max-width:340px;
-    margin:0 auto;
-    text-align:center;
-}
 
-.hero p{
-    max-width:340px;
-    margin:20px auto 0;
-    text-align:center;
-}
 
-.hero-actions{
-    justify-content:center;
-}
+
+
+
+
 
   /* Sections */
   .intro,
@@ -520,8 +516,8 @@
 
 /* ── Small phones (480px and below) ── */
 @media (max-width: 480px) {
-  .hero { padding-top: 100px; }
-  .hero h1 { font-size: clamp(36px, 13vw, 56px); }
+  
+  
 
   .intro h2,
   .section-head h2,
@@ -552,13 +548,13 @@
 
 /* ── Very small phones (390px and below) ── */
 @media (max-width: 390px) {
-  .hero { padding-top: 96px; }
-  .hero h1 { font-size: clamp(34px, 14vw, 50px); }
+  
+  
 
   .brand-main { font-size: 20px; }
   .brand-sub  { margin-left: 2px; font-size: 8px; }
 
-  .hero-actions .btn { padding: 0 18px; min-height: 50px; font-size: 14px; }
+  
 
   .work-sticky h2,
   .work-head h2    { font-size: clamp(34px, 12vw, 52px); }
@@ -585,9 +581,7 @@
 
 /* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
-  .hero-bg,
-  .hero-motion::before,
-  .hero-motion span { animation: none; }
+  
 
   .reveal {
     opacity: 1;
@@ -599,59 +593,205 @@
 
 /* ── Redesign overrides ── */
 @media (max-width: 1200px) {
-  .hero {
-    padding: 140px 6% 100px;
-    background-position: 64% center;
-  }
+  
 }
 
 @media (max-width: 860px) {
-  .hero {
-    min-height: 92vh;
-    min-height: 92dvh;
-    padding: 122px 6% 78px;
+  
+
+  
+
+  
+}
+
+@media (max-width: 768px) {
+  .primenest-feature {
+    min-height: 78svh;
+    padding: 96px 24px 64px;
+  }
+
+  .primenest-bg-video {
+    object-position: 62% center;
+  }
+
+  .primenest-overlay {
     background:
-      linear-gradient(180deg, rgba(5, 7, 11, 0.74) 0%, rgba(5, 7, 11, 0.94) 58%, #06070b 100%),
-      url("images/hero-primeridge-tech.png") 68% center / cover no-repeat,
-      #06070b;
+      linear-gradient(
+        180deg,
+        rgba(3, 5, 10, 0.16) 0%,
+        rgba(3, 5, 10, 0.54) 48%,
+        rgba(3, 5, 10, 0.95) 100%
+      );
   }
 
-  .hero-copy {
-    max-width: 680px;
+ .primenest-content h2 {
+    max-width: 420px;
+    font-size: clamp(2.2rem, 9vw, 3.5rem);
   }
 
-  .hero h1 {
-    font-size: clamp(42px, 10vw, 74px);
+  .primenest-content p {
+    max-width: 420px;
+    font-size: 0.96rem;
   }
 }
 
 @media (max-width: 640px) {
-  .hero {
-    min-height: 88vh;
-    min-height: 88dvh;
-    padding: 106px 5% 66px;
-    background:
-      linear-gradient(180deg, rgba(5, 7, 11, 0.82) 0%, rgba(5, 7, 11, 0.96) 64%, #06070b 100%),
-      url("images/hero-primeridge-tech.png") 71% center / cover no-repeat,
-      #06070b;
-  }
+  
 
-  .hero h1 {
-    font-size: clamp(38px, 12vw, 60px);
-    line-height: 0.98;
-  }
+  
 
-  .hero-proof {
-    gap: 8px;
-  }
+  
 
-  .hero-proof span {
-    font-size: 11px;
-  }
+  
 }
 
 @media (max-width: 480px) {
+  
+}
+
+/* ── Hero responsive overrides ── */
+
+/* Short desktop and laptop screens */
+@media (min-width: 1000px) and (max-height: 900px) {
   .hero {
-    background-position: 75% center;
+    min-height: 100dvh;
+    padding: 108px 32px 56px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2.2rem, 3.6vw, 3.8rem);
+  }
+
+  .hero-text {
+    margin-top: 18px;
+  }
+
+  .hero-link {
+    margin-top: 24px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .hero {
+    padding: 108px 28px 60px;
+  }
+
+  .hero-inner {
+    width: min(100%, 760px);
+  }
+
+  .hero-copy {
+    max-width: 620px;
+  }
+
+  .hero-copy h1 {
+    max-width: 600px;
+    font-size: clamp(2.25rem, 7vw, 3.8rem);
+  }
+
+  .hero-video {
+    object-position: 55% center;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .hero {
+    min-height: 100svh;
+    padding: 96px 20px 48px;
+  }
+
+  .hero-video {
+    object-position: 58% center;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(5, 7, 12, 0.24) 0%,
+        rgba(5, 7, 12, 0.48) 48%,
+        rgba(5, 9, 20, 0.94) 100%
+      );
+  }
+
+  .hero::after {
+    height: 100px;
+  }
+
+  .hero-kicker {
+    margin-bottom: 14px;
+    font-size: 0.66rem;
+  }
+
+  .hero-copy h1 {
+    max-width: 420px;
+    font-size: clamp(2.1rem, 10.5vw, 3.35rem);
+    line-height: 1.02;
+  }
+
+  .hero-text {
+    max-width: 390px;
+    margin-top: 18px;
+    font-size: 0.96rem;
+    line-height: 1.6;
+  }
+
+  .hero-link {
+    margin-top: 24px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .hero {
+    padding-inline: 18px;
+  }
+
+  .hero-video {
+    object-position: 60% center;
+  }
+
+  .hero-copy h1 {
+    max-width: 360px;
+    font-size: clamp(2rem, 11vw, 3rem);
+  }
+
+  .hero-text {
+    max-width: 340px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 390px) {
+  .hero {
+    padding-top: 90px;
+    padding-inline: 16px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(1.9rem, 11.5vw, 2.75rem);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-video {
+    display: none;
+  }
+
+  .hero {
+    background:
+      radial-gradient(
+        circle at 50% 42%,
+        rgba(80, 135, 255, 0.16),
+        transparent 42%
+      ),
+      #050914;
+  }
+
+  .hero-link {
+    transition: none;
   }
 }
