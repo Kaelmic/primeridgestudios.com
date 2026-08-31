@@ -31,8 +31,6 @@
 
   --section-space: 110px;
   --container: 1180px;
-  --shadow-lg:
-  --transition:
 }
 
 html {
@@ -323,8 +321,8 @@ textarea { font-family: inherit; }
   justify-content: center;
   align-items: center;
   gap: 5px;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.05);
