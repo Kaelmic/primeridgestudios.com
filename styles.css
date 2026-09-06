@@ -45,6 +45,10 @@ section[id] {
   scroll-margin-top: 60px;
 }
 
+#services {
+  scroll-margin-top: 0;
+}
+
 body {
   font-family: "Manrope", Arial, sans-serif;
   font-weight: 500;
@@ -57,6 +61,20 @@ body {
 .container {
   width: min(88%, var(--max-width));
   margin: 0 auto;
+}
+
+.eyebrow {
+  display: block;
+  margin: 0 0 16px;
+
+  color: var(--muted);
+
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 /* Promoted to its own compositor layer — no repaint on scroll */
@@ -609,12 +627,39 @@ textarea { font-family: inherit; }
   align-items: start;
 }
 
-.services-left {
-    text-align: left;
+/* .services-left .eyebrow {
+  display: inline-block;
+  margin-bottom: 16px;
+
+  color: var(--muted);
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+} */
+
+.services-left h2 {
+  max-width: 430px;
+
+  color: #fff;
+
+  font-size: clamp(42px, 5vw, 78px);
+  font-weight: 700;
+
+  line-height: 0.95;
+  letter-spacing: -0.055em;
 }
 
 .services-left p {
-    margin-left: 0;
+  max-width: 440px;
+
+  margin: 24px 0 0;
+
+  color: var(--text-soft);
+
+  font-size: 17px;
+  line-height: 1.75;
 }
 
 .work-sticky {
@@ -625,9 +670,9 @@ textarea { font-family: inherit; }
   align-self: start;
 }
 
-.work-sticky .eyebrow { 
+/* .work-sticky .eyebrow { 
   color: var(--muted); 
-}
+} */
 
 .work-sticky h2 {
   max-width: 520px;
@@ -831,109 +876,222 @@ textarea { font-family: inherit; }
 ------------------------- */
 .services {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+
+  /*
+    Creates the scrolling distance used to build the stack.
+    Six cards = roughly six viewport stages.
+  */
+  min-height: 440vh;
+
   padding: 90px 7%;
+
   background:
     radial-gradient(circle at 14% 18%, rgba(216, 180, 106, 0.10), transparent 30%),
     radial-gradient(circle at 88% 70%, rgba(79, 140, 255, 0.10), transparent 34%),
     linear-gradient(180deg, var(--bg-4) 0%, var(--bg-2) 100%);
+
   color: #fff;
 }
 
 .services-layout {
+  position: sticky;
+  top: 0;
+
+  height: 100vh;
+
   max-width: var(--max-width);
   margin: 0 auto;
+
   display: grid;
-  grid-template-columns: minmax(0, 1.18fr) minmax(280px, 0.82fr);
+  grid-template-columns:
+    minmax(0, 1.18fr)
+    minmax(280px, 0.82fr);
+
   gap: clamp(56px, 8vw, 120px);
+
   align-items: start;
+
+  padding-top: clamp(80px, 13vh, 130px);
+
+  overflow: hidden;
 }
 
 .services-left {
   grid-column: 2;
   position: sticky;
-  top: 100px;
+  top: auto;
+
+  margin-top: 120px;
 }
 
 .capabilities-list {
   grid-column: 1;
   grid-row: 1;
-  border-top: 1px solid var(--line);
+
+  position: relative;
+
+  height: calc(100vh - 90px);
+
+  border: 0;
+
+  /* Important: cards waiting below the stage are hidden */
+  overflow: hidden;
 }
 
-.services-left h2 {
-  max-width: 430px;
-  color: #fff;
-  font-size: clamp(42px, 5vw, 78px);
-  font-weight: 700;
-  line-height: 0.95;
-  letter-spacing: -0.055em;
-}
 
-.services-left p {
-  max-width: 440px;
-  margin-top: 24px;
-  color: var(--text-soft);
-  font-size: 17px;
-  line-height: 1.75;
-}
+/* =========================
+   Capability cards
+========================= */
 
 .capability-item {
-  position: relative;
-  display: grid;
-  grid-template-columns:1fr;
-  gap: 0;
-  align-items: start;
-  padding: 38px 0;
-  border-bottom: 1px solid var(--line);
-  transition: border-color 0.3s ease;
-}
+  --i: 0;
 
-.capability-item::before {
-  content: "";
   position: absolute;
-  left: -18px;
-  top: 38px;
-  width: 3px;
-  height: 0;
-  border-radius: 999px;
-  background: linear-gradient(180deg, var(--accent), #d8b46a);
-  opacity: 0;
-  transition: height 0.3s ease, opacity 0.3s ease;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  width: min(92%, 580px);
+  height: 240px;
+  min-height: 240px;
+
+  margin-inline: auto;
+
+  padding: 10px 30px 30px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 22px;
+
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(79,140,255,.08),
+      transparent 34%
+    ),
+    linear-gradient(
+      145deg,
+      #181c27,
+      #0e1119
+    );
+
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.12);
+
+  transform:
+    translateY(
+      calc(var(--card-y, 0) * 1px)
+    );
+
+  z-index: calc(10 + var(--i));
+
+  will-change: transform;
 }
 
-.capability-item:hover {
-  border-color: rgba(216, 180, 106, 0.22);
+
+/*
+  THIS is the part that was wrong in your CSS.
+  We use --i consistently.
+*/
+
+.capability-item:nth-child(1) { --i: 0; }
+.capability-item:nth-child(2) { --i: 1; }
+.capability-item:nth-child(3) { --i: 2; }
+.capability-item:nth-child(4) { --i: 3; }
+.capability-item:nth-child(5) { --i: 4; }
+.capability-item:nth-child(6) { --i: 5; }
+
+.capability-item:last-child {
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.18);
 }
 
-.capability-item:hover::before {
-  height: 46px;
-  opacity: 1;
+/* =========================
+   Content
+========================= */
+
+.capability-content {
+  position: relative;
 }
 
-.capability-number {
-  padding-top: 4px;
-  color: rgba(255, 255, 255, 0.30);
-  font-size: 11px;
-  font-weight: 900;
-  letter-spacing: 0.20em;
-  display: none;
-}
 
 .capability-item h3 {
+  min-height: 54px;
+
+  display: flex;
+  align-items: center;
+
+  margin: 0;
+  padding: 0;
+
   color: #fff;
-  font-size: clamp(27px, 3vw, 40px);
+
+  font-size: clamp(24px, 2.35vw, 34px);
   font-weight: 700;
-  line-height: 1;
+
+  line-height: 1.05;
   letter-spacing: -0.045em;
 }
 
+
 .capability-item p {
-  max-width: 560px;
-  margin-top: 14px;
+  max-width: 500px;
+
+  margin: 14px 0 0;
+
   color: var(--text-soft);
-  font-size: 16px;
-  line-height: 1.7;
+
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+
+/* No hover movement or pseudo-element */
+
+.capability-item::before {
+  content: none;
+}
+
+.capability-item:hover {
+  border-color: rgba(255,255,255,.10);
+
+  box-shadow:
+    0 24px 60px rgba(0,0,0,.25),
+    inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+/* Very slight card variation */
+
+.capability-item:nth-child(2) {
+  background:
+    radial-gradient(circle at 88% 16%, rgba(216, 180, 106, 0.06), transparent 32%),
+    linear-gradient(145deg, #1b1e28, #0d0f16);
+}
+
+.capability-item:nth-child(3) {
+  background:
+    radial-gradient(circle at 88% 16%, rgba(79, 140, 255, 0.09), transparent 32%),
+    linear-gradient(145deg, #1a1e29, #0c0f17);
+}
+
+.capability-item:nth-child(4) {
+  background:
+    radial-gradient(circle at 88% 16%, rgba(154, 134, 214, 0.08), transparent 32%),
+    linear-gradient(145deg, #1b1e29, #0d0f16);
+}
+
+.capability-item:nth-child(5) {
+  background:
+    radial-gradient(circle at 88% 16%, rgba(216, 180, 106, 0.06), transparent 32%),
+    linear-gradient(145deg, #1a1d27, #0c0e15);
+}
+
+.capability-item:nth-child(6) {
+  background:
+    radial-gradient(circle at 88% 16%, rgba(79, 140, 255, 0.10), transparent 32%),
+    linear-gradient(145deg, #1b1f2b, #0c0f17);
 }
 
 /* -------------------------

@@ -72,6 +72,19 @@
     position: relative;
     top: auto;
   }
+
+  .capability-item {
+  position: relative;
+  top: auto;
+
+  min-height: auto;
+  margin-bottom: 18px;
+}
+
+.capability-item:last-child {
+  margin-bottom: 0;
+}
+
   .services-list,
   .capabilities-list {
     grid-column: auto;

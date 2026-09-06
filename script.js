@@ -2,6 +2,8 @@ const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 const navbar = document.querySelector(".navbar");
 
+const capabilityBuildEnd = 0.92;
+
 /* ── 1. Close menu helper ── */
 function closeMenu() {
   if (!menuToggle || !navLinks) return;
@@ -46,7 +48,8 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-/* ── 6. Smooth scroll using CSS scroll-margin-top ── */
+
+
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", (e) => {
     const targetId = anchor.getAttribute("href");
@@ -56,6 +59,24 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 
     e.preventDefault();
     closeMenu();
+
+    /* Services: jump to completed card stack */
+    if (targetId === "#services") {
+      const sectionTop = target.offsetTop;
+
+      const scrollable =
+        target.offsetHeight - window.innerHeight;
+
+      const completedStackPosition =
+        sectionTop + (scrollable * capabilityBuildEnd);
+
+      window.scrollTo({
+        top: completedStackPosition,
+        behavior: "smooth"
+      });
+
+      return;
+    }
 
     target.scrollIntoView({
       behavior: "smooth",
@@ -114,3 +135,122 @@ if ("IntersectionObserver" in window) {
 } else {
   reveals.forEach((el) => el.classList.add("active"));
 }
+
+const capabilitiesSection = document.querySelector(".services");
+const capabilitiesStage = document.querySelector(".capabilities-list");
+const capabilityCards = [
+  ...document.querySelectorAll(".capability-item")
+];
+
+function updateCapabilityStack() {
+  if (
+    !capabilitiesSection ||
+    !capabilitiesStage ||
+    !capabilityCards.length
+  ) return;
+
+  if (window.innerWidth <= 1100) return;
+
+  const sectionRect =
+    capabilitiesSection.getBoundingClientRect();
+
+  const scrollable =
+    capabilitiesSection.offsetHeight -
+    window.innerHeight;
+
+  if (scrollable <= 0) return;
+
+  const rawProgress = Math.min(
+  Math.max(-sectionRect.top / scrollable, 0),
+  1
+);
+
+const progress = Math.min(
+  rawProgress / capabilityBuildEnd,
+  1
+);
+
+ const cardHeight = 230;
+
+/*
+  Dynamically calculate how much of each previous
+  card can remain visible while keeping card 6
+  completely inside the viewport.
+*/
+const availableHeight = capabilitiesStage.clientHeight;
+
+const desiredStep = 60;
+
+const stackStep = Math.min(
+  desiredStep,
+  (availableHeight - cardHeight - 12) / 5
+);
+
+/* Waiting cards begin completely below the stage */
+const startY = availableHeight + 40;
+
+  capabilityCards.forEach((card, index) => {
+
+    const finalY = index * stackStep;
+
+    /*
+      Card 1 is already present.
+      Cards 2–6 each get their own scroll segment.
+    */
+    if (index === 0) {
+      card.style.setProperty("--card-y", "0");
+      return;
+    }
+
+    const start =
+      (index - 1) / (capabilityCards.length - 1);
+
+    const end =
+      index / (capabilityCards.length - 1);
+
+    let localProgress =
+      (progress - start) / (end - start);
+
+    localProgress = Math.min(
+      Math.max(localProgress, 0),
+      1
+    );
+
+    const y =
+      startY +
+      (finalY - startY) * localProgress;
+
+    card.style.setProperty(
+      "--card-y",
+      y.toFixed(2)
+    );
+  });
+}
+
+let capabilityTicking = false;
+
+function requestCapabilityUpdate() {
+  if (capabilityTicking) return;
+
+  capabilityTicking = true;
+
+  requestAnimationFrame(() => {
+    updateCapabilityStack();
+    capabilityTicking = false;
+  });
+}
+
+window.addEventListener(
+  "scroll",
+  requestCapabilityUpdate,
+  { passive: true }
+);
+
+window.addEventListener(
+  "resize",
+  requestCapabilityUpdate,
+  { passive: true }
+);
+
+/* Set the correct initial positions immediately */
+updateCapabilityStack();
