@@ -60,8 +60,8 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     e.preventDefault();
     closeMenu();
 
-    /* Services: jump to completed card stack */
-    if (targetId === "#services") {
+    /* Services: jump to completed card stack (desktop-only pinned stack) */
+    if (targetId === "#services" && window.innerWidth > 1100) {
       const sectionTop = target.offsetTop;
 
       const scrollable =
@@ -254,3 +254,76 @@ window.addEventListener(
 
 /* Set the correct initial positions immediately */
 updateCapabilityStack();
+
+/* ── 10. Capabilities accordion (mobile) ──
+   Cards show only their title by default. Tapping a title expands
+   its paragraph; opening one closes any other that's open. This is
+   purely a mobile enhancement — on desktop the panel's neutral CSS
+   (max-height: none) always applies, so nothing here has any visual
+   effect there. Inline max-height is explicitly cleared whenever the
+   viewport crosses back to desktop width, so a leftover value from a
+   mobile session can never clip the desktop paragraph. */
+const capabilityToggles = document.querySelectorAll(".capability-toggle");
+
+function openCapabilityPanel(btn) {
+  const item = btn.closest(".capability-item");
+  const panel = document.getElementById(btn.getAttribute("aria-controls"));
+  if (!item || !panel) return;
+
+  item.classList.add("is-open");
+  btn.setAttribute("aria-expanded", "true");
+  panel.style.maxHeight = `${panel.scrollHeight}px`;
+}
+
+function closeCapabilityPanel(btn) {
+  const item = btn.closest(".capability-item");
+  const panel = document.getElementById(btn.getAttribute("aria-controls"));
+  if (!item || !panel) return;
+
+  item.classList.remove("is-open");
+  btn.setAttribute("aria-expanded", "false");
+  panel.style.maxHeight = "0px";
+}
+
+capabilityToggles.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const item = btn.closest(".capability-item");
+    if (!item) return;
+
+    const wasOpen = item.classList.contains("is-open");
+
+    /* Accordion: only one card open at a time */
+    capabilityToggles.forEach((otherBtn) => {
+      if (otherBtn !== btn) closeCapabilityPanel(otherBtn);
+    });
+
+    if (wasOpen) {
+      closeCapabilityPanel(btn);
+    } else {
+      openCapabilityPanel(btn);
+    }
+  });
+});
+
+window.addEventListener(
+  "resize",
+  () => {
+    const isMobile = window.innerWidth <= 1100;
+
+    capabilityToggles.forEach((btn) => {
+      const item = btn.closest(".capability-item");
+      const panel = document.getElementById(btn.getAttribute("aria-controls"));
+      if (!panel) return;
+
+      if (!isMobile) {
+        panel.style.maxHeight = "";
+        return;
+      }
+
+      if (item && item.classList.contains("is-open")) {
+        panel.style.maxHeight = `${panel.scrollHeight}px`;
+      }
+    });
+  },
+  { passive: true }
+);

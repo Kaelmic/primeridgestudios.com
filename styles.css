@@ -1016,6 +1016,34 @@ textarea { font-family: inherit; }
   position: relative;
 }
 
+/* Accordion button/icon/panel wrapper elements — neutral on desktop.
+   The desktop pinned card-stack always shows the full paragraph, so
+   here the button is just an unstyled wrapper, the icon is hidden,
+   and the panel is always fully open. The actual collapse/expand
+   accordion behavior is added inside the mobile media query in
+   responsive.css, where the desktop stack is already disabled. */
+.capability-toggle {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: 0;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: default;
+}
+
+.capability-icon {
+  display: none;
+}
+
+.capability-panel {
+  max-height: none;
+  opacity: 1;
+  overflow: visible;
+}
 
 .capability-item h3 {
   min-height: 54px;
