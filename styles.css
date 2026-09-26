@@ -369,9 +369,9 @@ textarea { font-family: inherit; }
 }
 
 .menu-toggle span:nth-child(2) {
-  width: 12px;
-  align-self: flex-end;
-  margin-right: 11px;
+  width: 18px;
+  align-self: auto;
+  margin-right: 0;
 }
 
 .menu-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
