@@ -302,34 +302,38 @@ textarea { font-family: inherit; }
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  height: 40px;
-  padding: 0 18px;
-  border-radius: 8px;
-  font-size: 12.5px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: #fff;
-  background: rgba(216, 180, 106, 0.08);
-  border: 1px solid rgba(216, 180, 106, 0.28);
-  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  justify-content: center;
+
+  height: 38px;
+  padding: 0 16px;
+
+  color: rgba(255, 255, 255, 0.88);
+  background: transparent;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 5px;
+
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+
   white-space: nowrap;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
 }
 
 .nav-cta::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #d8b46a;
-  box-shadow: 0 0 8px #d8b46a;
-  flex-shrink: 0;
+  content: none;
 }
 
 .nav-cta:hover {
-  background: rgba(216, 180, 106, 0.14);
-  border-color: rgba(216, 180, 106, 0.5);
-  box-shadow: 0 0 24px rgba(216, 180, 106, 0.12);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: none;
 }
 
 /* ── Hamburger — hidden on desktop ── */
