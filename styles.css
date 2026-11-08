@@ -1509,7 +1509,6 @@ textarea { font-family: inherit; }
   will-change: auto;
 }
 
-
 /* -------------------------
    Reduced motion
 ------------------------- */
@@ -1560,4 +1559,139 @@ textarea { font-family: inherit; }
   body {
     overflow-x: hidden;
   }
+}
+
+/* Process: vertical scroll progression */
+.process .section-head {
+  margin-bottom: 68px;
+}
+
+.process-timeline {
+  --process-progress: 0;
+  position: relative;
+  width: min(100%, 760px);
+  margin-inline: auto;
+}
+
+.process-track {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  bottom: 15px;
+  width: 2px;
+  background: rgba(255, 255, 255, .14);
+  pointer-events: none;
+}
+
+.process-track-fill {
+  width: 100%;
+  height: calc(var(--process-progress) * 100%);
+  background: var(--accent-2);
+  box-shadow: 0 0 15px rgba(216, 180, 106, .35);
+}
+
+.process-stage {
+  position: relative;
+  min-height: 165px;
+  padding: 0 0 58px 64px;
+}
+
+.process-stage:last-child {
+  min-height: 165px;
+  padding-bottom: 65px;
+}
+
+.process-marker {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 16px;
+  height: 16px;
+  border: 3px solid var(--bg-3);
+  border-radius: 50%;
+  background: #59606d;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, .12);
+  transition: background .35s ease, box-shadow .35s ease;
+}
+
+.process-stage.is-active .process-marker {
+  background: var(--accent-2);
+  box-shadow: 0 0 0 3px rgba(216, 180, 106, .2), 0 0 20px rgba(216, 180, 106, .24);
+}
+
+.process-stage-copy {
+  opacity: .56;
+  transform: translateY(12px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+
+.process-stage.is-active .process-stage-copy {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.process-stage h3 {
+  color: #fff;
+  font-size: clamp(27px, 3vw, 38px);
+  font-weight: 700;
+  letter-spacing: -.04em;
+  line-height: 1.15;
+}
+
+.process-stage p {
+  max-width: 590px;
+  margin-top: 14px;
+  color: var(--text-soft);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .process-stage-copy {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .process-marker {
+    transition: none;
+  }
+}
+
+/* Timeline completion marker */
+.process-complete {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 28px;
+  height: 28px;
+  margin-left: -1px;
+
+  border: 2px solid var(--accent-2);
+  border-radius: 50%;
+
+  background: var(--bg-3);
+  color: var(--accent-2);
+
+  opacity: 0;
+  transform: scale(.65);
+
+  transition:
+    opacity .35s ease,
+    transform .35s ease;
+}
+
+.process-complete.is-complete {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.process-complete span {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
 }

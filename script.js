@@ -327,3 +327,82 @@ window.addEventListener(
   },
   { passive: true }
 );
+
+
+/* Process timeline: synchronized line, markers and completion */
+(() => {
+  const timeline = document.querySelector(".process-timeline");
+  if (!timeline) return;
+
+  const track = timeline.querySelector(".process-track");
+  const stages = [...timeline.querySelectorAll("[data-process-stage]")];
+  const markers = stages.map(stage => stage.querySelector(".process-marker"));
+  const completion = timeline.querySelector(".process-complete");
+
+  if (!track || !markers.length || markers.some(marker => !marker)) return;
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let scheduled = false;
+
+  function updateProcessTimeline() {
+    scheduled = false;
+
+    if (reduceMotion.matches) {
+      timeline.style.setProperty("--process-progress", "1");
+      stages.forEach(stage => stage.classList.add("is-active"));
+      completion?.classList.add("is-complete");
+      return;
+    }
+
+    const trackRect = track.getBoundingClientRect();
+    const firstRect = markers[0].getBoundingClientRect();
+
+    const startY = firstRect.top + firstRect.height / 2;
+    const endY = trackRect.bottom;
+
+    const triggerY = window.innerHeight * 0.65;
+
+    const progress = Math.max(
+      0,
+      Math.min(
+        1,
+        (triggerY - startY) / Math.max(1, endY - startY)
+      )
+    );
+
+    timeline.style.setProperty("--process-progress", String(progress));
+
+    // Actual bottom position of the gold progress line
+    const fillBottom = trackRect.top + trackRect.height * progress;
+
+    // Activate each stage when the gold line reaches its marker
+    markers.forEach((marker, index) => {
+      const rect = marker.getBoundingClientRect();
+      const markerCenter = rect.top + rect.height / 2;
+
+      stages[index].classList.toggle(
+        "is-active",
+        fillBottom >= markerCenter - 2
+      );
+    });
+
+    // Show checkmark only when the line reaches the bottom
+    if (completion) {
+      completion.classList.toggle("is-complete", progress >= 0.999);
+    }
+  }
+
+  function scheduleProcessUpdate() {
+    if (scheduled) return;
+
+    scheduled = true;
+    requestAnimationFrame(updateProcessTimeline);
+  }
+
+  window.addEventListener("scroll", scheduleProcessUpdate, { passive: true });
+  window.addEventListener("resize", scheduleProcessUpdate, { passive: true });
+
+  reduceMotion.addEventListener?.("change", scheduleProcessUpdate);
+
+  updateProcessTimeline();
+})();

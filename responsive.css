@@ -194,8 +194,11 @@
 
   .capability-item.is-open .capability-panel {
     opacity: 1;
-    padding: 2px 22px 24px;
-    /* max-height is set inline by JS to the panel's real content height */
+    padding: 2px 22px 0;
+  }
+
+  .capability-item.is-open .capability-panel p {
+    margin-bottom: 28px;
   }
 
   .capability-item p {
@@ -852,4 +855,11 @@
   .hero-link {
     transition: none;
   }
+}
+/* Vertical process progression overrides previous .steps grid */
+@media (max-width: 640px) {
+  .process .section-head { margin-bottom: 48px; }
+  .process-stage { min-height: 150px; padding-left: 48px; padding-bottom: 44px; }
+  .process-stage h3 { font-size: 27px; }
+  .process-stage p { font-size: 14.5px; line-height: 1.7; }
 }
