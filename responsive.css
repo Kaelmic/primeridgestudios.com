@@ -771,3 +771,64 @@
   .process-stage h3 { font-size: 27px; }
   .process-stage p { font-size: 14.5px; line-height: 1.7; }
 }
+
+/* Restore original mobile pricing table */
+@media (max-width: 760px) {
+  .pricing-header {
+    display: none;
+  }
+
+  .pricing-table {
+    display: block;
+    width: 100%;
+    overflow: visible;
+  }
+
+  .pricing-row,
+  .pricing-row:first-of-type {
+    display: grid;
+    grid-template-columns: 1.6fr repeat(3, minmax(0, 1fr));
+    gap: 0;
+    min-height: 58px;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .pricing-row span {
+    font-size: 12px;
+    padding: 12px 4px 12px 0;
+  }
+
+  .pricing-row div,
+  .pricing-row strong,
+  .pricing-row:first-of-type strong {
+    display: block;
+    min-width: 0;
+    padding: 12px 3px;
+    font-size: 12px;
+    line-height: 1.45;
+    text-align: center;
+    letter-spacing: -0.02em;
+    overflow-wrap: normal;
+  }
+
+  .pricing-row:first-of-type strong::before {
+    content: none !important;
+  }
+
+  .pricing-row:first-of-type strong {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    min-height: 0;
+    color: #fff;
+    font-weight: 800;
+  }
+}
+
+@media (max-width: 390px) {
+  .pricing-row,
+  .pricing-row:first-of-type {
+    grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr));
+  }
+}
