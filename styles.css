@@ -1068,9 +1068,9 @@ p, a, span, li, button {
   font-size: clamp(30px, 2.8vw, 46px);
 }
 
-.featured-row {
+/* .featured-row {
   background: rgba(216, 180, 106, 0.045);
-}
+} */
 
 .featured-build {
   display: grid;
