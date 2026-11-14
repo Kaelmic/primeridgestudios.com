@@ -832,3 +832,13 @@
     grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr));
   }
 }
+/* Mobile price row: override the desktop nth-child(2) price sizing. */
+@media (max-width: 760px) {
+  .pricing-table > .pricing-row:nth-child(2) strong {
+    font-size: 12px;
+    line-height: 1.45;
+    letter-spacing: -0.02em;
+    white-space: normal;
+    overflow-wrap: normal;
+  }
+}
